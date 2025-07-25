@@ -1,0 +1,12 @@
+mas itm_factory_mas {
+
+    agent alice {
+        join: itm_factory_workspace
+        focus: itm_factory_workspace.h
+    }
+
+    workspace itm_factory_workspace  {
+        artifact h: org.hypermedea.HypermedeaArtifact()
+    }
+
+}

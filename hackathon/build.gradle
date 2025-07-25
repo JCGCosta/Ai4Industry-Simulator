@@ -1,0 +1,59 @@
+defaultTasks 'run'
+
+apply plugin: 'java'
+
+version '0.2'
+group   'org.jacamo'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+repositories {
+    mavenCentral()
+
+    // artifact repository for JaCaMo-related project
+    maven { url "https://raw.githubusercontent.com/jacamo-lang/mvn-repo/master" }
+    maven { url "https://repo.gradle.org/gradle/libs-releases" }
+    // artifact repository for Hypermedea dependencies
+    maven { url 'https://hypermedea.github.io/maven' }
+
+    mavenLocal()
+}
+
+dependencies {    
+    implementation('org.jacamo:jacamo:1.3.0')
+    implementation('org.hypermedea:hypermedea:0.4.2')
+}
+
+task wot (type: JavaExec, dependsOn: 'classes') {
+    description 'Run a proxy agent that processes TD documents to control the ITm Factory line'
+    main 'jacamo.infra.JaCaMoLauncher'
+    args 'wot.jcm'
+    workingDir 'wot'
+    classpath sourceSets.main.runtimeClasspath
+}
+
+task kg (type: JavaExec, dependsOn: 'classes') {
+    description 'Run the same proxy agent as "wot", processing RDF files instead'
+    main 'jacamo.infra.JaCaMoLauncher'
+    args 'kg.jcm'
+    workingDir 'kg'
+    classpath sourceSets.main.runtimeClasspath
+}
+
+task mas (type: JavaExec, dependsOn: 'classes') {
+    description 'Run a multi-agent system to control the ITm Factory line'
+    main 'jacamo.infra.JaCaMoLauncher'
+    args 'mas.jcm'
+    workingDir 'mas'
+    classpath sourceSets.main.runtimeClasspath
+}
+
+clean {
+    delete 'bin'
+    delete 'build'
+    delete 'log'
+}

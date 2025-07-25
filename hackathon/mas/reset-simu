@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [[ ! $# = 1 || ! $1 = [1-8] ]] ; then echo "This script must be run with the group number as parameter." ; false ; exit ; fi ;
+
+echo "Calling storageRack.pressEmergencyStop..."; echo;
+curl -i --user "simu$1:simu$1" --location --request POST "https://ci.mines-stetienne.fr/simu/storageRack/actions/pressEmergencyStop";
+echo "Calling fillingWorkshop.pressEmergencyStop...\n" echo;
+curl -i --user "simu$1:simu$1" --location --request POST "https://ci.mines-stetienne.fr/simu/fillingWorkshop/actions/pressEmergencyStop";
+echo "Calling robotArm.pressEmergencyStop..." echo;
+curl --user "simu$1:simu$1" --location --request POST "https://ci.mines-stetienne.fr/simu/robotArm/actions/pressEmergencyStop";
+echo "Calling packagingWorkshop.pressEmergencyStop..." echo;
+curl -i --user "simu$1:simu$1" --location --request POST "https://ci.mines-stetienne.fr/simu/packagingWorkshop/actions/pressEmergencyStop";
+echo "Calling cupProvider.order(25)..." echo;
+curl -i --user "simu$1:simu$1" --location --request POST "https://ci.mines-stetienne.fr/simu/cupProvider/actions/order" --header 'Content-Type: application/json' --data-raw '25';
+echo "Calling cupProvider.orderPackages(5)..." echo;
+curl -i --user "simu$1:simu$1" --location --request POST "https://ci.mines-stetienne.fr/simu/cupProvider/actions/orderPackages" --header 'Content-Type: application/json' --data-raw '5';
+echo "Calling dairyProductProvider.order(2)..." echo;
+curl -i --user "simu$1:simu$1" --location --request POST "https://ci.mines-stetienne.fr/simu/dairyProductProvider/actions/order" --header 'Content-Type: application/json' --data-raw '2';
+echo "Reset done."

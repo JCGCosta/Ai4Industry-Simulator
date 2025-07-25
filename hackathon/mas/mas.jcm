@@ -1,0 +1,89 @@
+/*
+TODO: replace simu2 with your simu + group number (e.g. "simu1", "simu2", etc).
+*/
+mas itm_factory_mas {
+
+    // Agent for providing cups and packages
+    agent cup_provider {
+        beliefs:    entryPoint("https://ci.mines-stetienne.fr/kg/")     // entry point to the KG
+                    name(cupProvider)                                   // name of the thing controled by the agent
+                    credentials("simu2","simu2")                        // credentials to access the thing  
+        goals:      start                                               // initial goal. Comment to make agent inactive
+        join:       itm_factory_workspace                               // working environment for the agent
+        focus:      itm_factory_workspace.h                   
+    }
+
+    // Agent for providing dairy product
+     agent dairy_product_provider {
+        beliefs:    entryPoint("https://ci.mines-stetienne.fr/kg/")     // entry point to the KG
+                    name(dairyProductProvider)                          // name of the thing controled by the agent
+                    credentials("simu2","simu2")                        // credentials to access the thing  
+        goals:      start                                               // initial goal. Comment to make agent inactive
+        join:       itm_factory_workspace                               // working environment for the agent
+        focus:      itm_factory_workspace.h
+    }
+
+    // Agent for controling the Conveying Workshop / Storage Rack
+    agent vl10_agent {
+        beliefs:    entryPoint("https://ci.mines-stetienne.fr/kg/")     // entry point to the KG
+                    name(storageRack)                                   // name of the thing controled by the agent
+                    credentials("simu2","simu2")
+                    timer(1000)                                         // time interval for the polling of values of the thing properties
+                    initialSpeed(0)                                   // initial speed of the conveyor
+                    provider(cup_provider)                              // name of the agent providing cups
+        goals:      start                                               // initial goal. Comment to make agent inactive
+        join:       itm_factory_workspace                               // working environment for the agent
+        focus:      itm_factory_workspace.h
+    }
+
+    // Agent for controling the Dosaxe Workshop / Filling workshop
+    agent dx10_agent {
+        beliefs:    entryPoint("https://ci.mines-stetienne.fr/kg/")     // entry point to the KG
+                    name(fillingWorkshop)                               // name of thing controled by the agent
+                    credentials("simu2","simu2")                        // credentials to access the thing
+                    timer(10)                                         // time interval for the polling of values of the thing properties
+                    initialSpeed(0)                                   // initial speed of the conveyor
+                    provider(dairy_product_provider)                    // name of the agent providing dairy product
+                    robotArm(apas_agent)
+        goals:      start                                               // initial goal. Comment to make agent inactive
+        join:       itm_factory_workspace                               // working environment for the agent
+        focus:      itm_factory_workspace.h
+    }
+
+    // Agent for the robotic arm
+    agent apas_agent {
+        beliefs:    entryPoint("https://ci.mines-stetienne.fr/kg/")     // entry point to the KG
+                    name(boschApas)                                     // name of the thing controled by the agent
+                    credentials("simu2","simu2")                        // credentials to access the thing
+                    timer(1000)                                         // time interval for the polling of values of the thing properties
+        goals:      start                                               // initial goal. Comment to make agent inactive
+        join:       itm_factory_workspace                               // working environment for the agent
+        focus:      itm_factory_workspace.h
+    }
+
+    // Agent for controling the Packaging Workshop
+    agent xy10_agent {
+        beliefs:    entryPoint("https://ci.mines-stetienne.fr/kg/")     // entry point to the KG
+                    name(packagingWorkshop)                             // name of the thing controled by the agent
+                    credentials("simu2","simu2")                        // credentials to access the thing
+                    timer(1000)                                         // time interval for the polling of values of the thing properties
+                    initialSpeed(0.5)                                   // initial speed of the conveyor
+                    provider(cup_provider)                              // name of the agent providing packages
+        goals:      start                                               // initial goal. Comment to make agent inactive
+        join:       itm_factory_workspace                               // working environment for the agent
+        focus:      itm_factory_workspace.h
+    }
+
+    // Agent for crawling the KG
+    agent ld_spider {
+        beliefs:    entryPoint("https://ci.mines-stetienne.fr/kg/")     // entry point to the KG
+        goals:      start                                               // initial goal. Comment to make agent inactive
+        join:       itm_factory_workspace                               // working environment for the agent
+        focus:      itm_factory_workspace.h
+    }
+
+    workspace itm_factory_workspace  {
+        artifact h: org.hypermedea.HypermedeaArtifact()
+    }
+
+}

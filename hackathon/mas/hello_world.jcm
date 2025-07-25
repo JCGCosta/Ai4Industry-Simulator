@@ -1,0 +1,7 @@
+mas hello_world_mas {
+
+    agent template_agent {
+        goals: start
+    }
+
+}
