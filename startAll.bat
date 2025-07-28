@@ -1,14 +1,15 @@
 @echo off
-REM Set base directory where your projects are
-set BASEDIR=C:\1_Arquivos\2_Pessoal\SummerSchool
 
-REM 1. Open GUI in new terminal
-start "GUI" cmd /k "cd /d %BASEDIR%\ai4industry2024-gui && startGUI 2"
+set BASEDIR=%~dp0
 
-REM 2. Start Node-RED in another terminal
+if "%BASEDIR:~-1%"=="\" set BASEDIR=%BASEDIR:~0,-1%
+
+if "%GROUPNUM%"=="" set GROUPNUM=1
+
+start "GUI" cmd /k "cd /d %BASEDIR%\IndustryGUI && startGUI %GROUPNUM%"
+
 start "Node-RED" cmd /k "npx node-red"
 
-REM 3. Start your Flask API in another terminal
-start "API" cmd /k "cd /d %BASEDIR%\startMASSimu && python runAPI.py"
+start "API" cmd /k "cd /d %BASEDIR% && python runAPI.py %BASEDIR%"
 
 exit

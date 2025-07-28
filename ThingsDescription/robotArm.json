@@ -1,0 +1,74 @@
+{
+    "@context": "https://www.w3.org/2019/wot/td/v1",
+    "id": "tag:robotArm",
+    "title": "robotArm",
+    "description": "6-axis robot arm with an attached gripper.",
+    "securityDefinitions": {
+        "with_auth": {
+            "scheme": "basic"
+        }
+    },
+    "security": [
+        "with_auth"
+    ],
+    "properties": {
+        "stackLightStatus": {
+            "readOnly": true,
+            "description": "Reads the status of the workshop (e.g. the status is 'yellow' when the workshop is resetting.)",
+            "type": "string",
+            "enum": ["green", "yellow", "red"]
+        },
+        "inMovement" : {
+            "readOnly": true,
+            "description": "Reads the movement status of the robot. The status is true if the robot is in movement.",
+            "type": "boolean"
+        },
+        "grasping": {
+            "readOnly": true,
+            "description": "Reads the grasping status of the robot. The status is true if gripper is closed. The status is false if the gripper is open.",
+            "type": "boolean"
+        }
+    },
+    "actions": {
+        "pressEmergencyStop": {
+            "description": "Turns off all active components of the machine: It opens the gripper, and it cancels on-going movement tasks."
+        },
+        "moveTo" : {
+            "description": "Moves the robot arm`s hand on the XYZ coordinate system.",
+            "input": {
+                "type": "object",
+                "properties": {
+                    "x": {
+                        "type": "number"
+                    },
+                    "y": {
+                        "type": "number"
+                    },
+                    "z": {
+                        "type": "number"
+                    }
+                },
+                "required": [
+                    "x",
+                    "y",
+                    "z"
+                ]
+            },
+            "output": {
+                "type": "boolean"
+            }
+        },
+        "grasp": {
+            "description": "Closes the gripper to grasp the item that is right under the robot arm's hand. The grasping is performed only if the gripper is currently open and an item is positioned under robot arm's hand.",
+            "output": {
+                "type": "boolean"
+            }
+        },
+        "release": {
+            "description": "Opens the gripper to release an item.",
+            "output": {
+                "type": "boolean"
+            }
+        }
+    }
+}

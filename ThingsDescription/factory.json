@@ -1,0 +1,49 @@
+{
+    "@context": "https://www.w3.org/2019/wot/td/v1",
+    "id": "tag:factory",
+    "title": "factory",
+    "description": "Whole ITm factory, exposing bookkeeping properties",
+    "securityDefinitions": {
+        "with_auth": {
+            "scheme": "basic"
+        }
+    },
+    "security": [
+        "with_auth"
+    ],
+    "properties": {
+        "deliveryBook": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "type": "string",
+                    "date": "string",
+                    "quantity": "number"
+                },
+                "required": [
+                    "type",
+                    "date",
+                    "quantity"
+                ]
+            }
+        },
+        "shippingBook": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "date": "string"
+                },
+                "required": [
+                    "date"
+                ]
+            }
+        }
+    },
+    "actions": {
+        "reset": {
+            "description": "Resets the simulation environment. It presses the emergency stop buttons of all workshops and orders new consumables from the providers."
+        }
+    }
+}

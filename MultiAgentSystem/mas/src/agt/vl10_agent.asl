@@ -54,7 +54,18 @@ thing(storageRack,Thing) :-
 
 +!run(Name) : thing(Name,Thing) <-
     .print("Found suitable storage rack: ", Thing) ;
-    !changeConveyorSpeed(Name, 0.1);
+     // set credentials to access the Thing (DX10 workshop of the IT'm factory)
+
+  //  ?locationOfOutputProduct(Name,COX,COY,COZ);
+  //  !getDescription(Name);
+  //  !testStatus(Name);
+
+    !observeStackLightStatus(Name);
+
+    ?conveyorSpeed(Name,IS);
+    if (IS == 0) {
+      !changeConveyorSpeed(Name,0.1);
+    }
     !conveyItems(Name);
   .
 
@@ -63,17 +74,18 @@ thing(storageRack,Thing) :-
     <-
     .wait(100);
     !!run(Name).
-
+    
 +!conveyItems(Name) :
     thing(Name,Thing)
     <-
     ?capacity(Name, C);
     .nth(0,C,VX);
     .nth(0,C,VY);
-    for (.range(X,0,VX-1)) {
-      for (.range(Y,0,VY-1)) {
+    for (.range(X,0,VX-1)){
+        for (.range(Y,0,VY-1)){
+        .wait(30000);
         !pickItem(Name, [X, Y]);
-      }
+        }
     }
     ?provider(P);
     .send(P, achieve, order(25));
@@ -83,7 +95,6 @@ thing(storageRack,Thing) :-
     true
     <-
     .print("received the acknowledgment from ",Sender);
-    !conveyItems(Name)
   .
 
 // Handling emergency cases

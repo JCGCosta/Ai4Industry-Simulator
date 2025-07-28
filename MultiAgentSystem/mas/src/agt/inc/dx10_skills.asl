@@ -35,6 +35,7 @@
     .println("acted on ",Name," to request ",Thing," to change property ", PName, " with value ",Value);
   .
 
+
 // Plan for calling the emergency stop action affordance
 +!pressEmergencyStop(Name) :
     thing(Name,Thing)

@@ -1,0 +1,41 @@
+{
+    "@context": "https://www.w3.org/2019/wot/td/v1",
+    "id": "tag:cupProvider",
+    "title": "cupProvider",
+    "securityDefinitions": {
+        "with_auth": {
+            "scheme": "basic"
+        }
+    },
+    "security": [
+        "with_auth"
+    ],
+    "actions": {
+        "order" : {
+            "description": "order a certain quantity of cups",
+            "input": {
+                "type": "integer"
+            }
+        },
+        "orderPackages" : {
+            "description": "order a certain quantity of empty packages",
+            "input": {
+                "type": "integer"
+            }
+        }
+    },
+    "events": {
+        "delivered": {
+            "description": "indicates how many cups have been delivered",
+            "data": {
+                "type": "integer"
+            }
+        },
+        "deliveredPackages": {
+            "description": "indicates how many packages have been delivered",
+            "data": {
+                "type": "integer"
+            }
+        }
+    }
+}
