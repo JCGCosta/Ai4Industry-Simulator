@@ -15,7 +15,7 @@
 
 I would like to thank to the AI4Industry organization committee, for the amazing lectures and dissemination event.
 
-## Architecture Overview
+## Architecture Overview (From [Hackathon Wiki](https://gitlab.emse.fr/ai4industry/hackathon/-/wikis/Home))
 
 The architecture supporting the hackathon use case is structured along three layers fully supported by the Web architecture (i) to make interoperate the physical things or devices deployed in each of the workshops composing the factory, as well as the external devices or services exposed by other factories or utilities, (ii) to provide access to the shared data and knowledge produced by these different resources or published by external sources, and (iii) to coordinate and control flexible process enacted by a decentralized set of agents.
 
