@@ -1,0 +1,3301 @@
+[
+    {
+        "id": "c47edea89723bf87",
+        "type": "tab",
+        "label": "Interaction",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "b06bfa5017fc0d79",
+        "type": "tab",
+        "label": "Conveying",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "afe97e04980fad99",
+        "type": "tab",
+        "label": "Filling",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "7821fc403eb5a650",
+        "type": "tab",
+        "label": "Potting",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f26c61a9d77fd309",
+        "type": "tab",
+        "label": "Packing",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "fcf9313635da44d5",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#ff570f",
+                "baseFont": "Arial Narrow,Nimbus Sans L,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#db8206",
+                "baseFont": "Arial Narrow,Nimbus Sans L,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#db8206",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#db8206",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#f9a734",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#db8206",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "Arial Narrow,Nimbus Sans L,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "f03b58770a0663cf",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "216106bbbcac44a8",
+        "type": "consumed-thing",
+        "tdLink": "",
+        "td": "{\"@context\":\"https://www.w3.org/2019/wot/td/v1\",\"id\":\"tag:storageRack\",\"title\":\"storageRack\",\"description\":\"VL10 storage rack with a Cartesian robot and a conveyor belt. It can be used as a conveying workshop: The Cartesian robot can be used to move on the XZ-plane, pick up items from the storage rack and place them on the one end of the conveyor belt.\",\"securityDefinitions\":{\"with_auth\":{\"scheme\":\"basic\"}},\"security\":[\"with_auth\"],\"properties\":{\"stackLightStatus\":{\"readOnly\":true,\"description\":\"Reads the status of the workshop (e.g. the status is 'yellow' when the workshop is resetting.)\",\"enum\":[\"green\",\"yellow\",\"red\"],\"writeOnly\":false,\"observable\":false,\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/storageRack/properties/stackLightStatus\",\"contentType\":\"application/json\",\"op\":[\"readproperty\"],\"htv:methodName\":\"GET\"}]},\"capacity\":{\"readOnly\":true,\"description\":\"Reads the capacity of the 2D storage rack E.g. a [5,5] capacity indicates that the rack has 5 rows (X axis) and 5 columns (Z axis), and it can store at most 25 items.\",\"type\":\"array\",\"maxItems\":2,\"minItems\":2,\"items\":{\"type\":\"number\"},\"writeOnly\":false,\"observable\":false,\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/storageRack/properties/capacity\",\"contentType\":\"application/json\",\"op\":[\"readproperty\"],\"htv:methodName\":\"GET\"}]},\"positionX\":{\"readOnly\":true,\"description\":\"Reads the position of the Cartesian motor on the X axis (in meters).\",\"type\":\"number\",\"writeOnly\":false,\"observable\":false,\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/storageRack/properties/positionX\",\"contentType\":\"application/json\",\"op\":[\"readproperty\"],\"htv:methodName\":\"GET\"}]},\"positionZ\":{\"readOnly\":true,\"description\":\"Reads the position of the Cartesian motor on the Z axis (in meters).\",\"type\":\"number\",\"writeOnly\":false,\"observable\":false,\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/storageRack/properties/positionZ\",\"contentType\":\"application/json\",\"op\":[\"readproperty\"],\"htv:methodName\":\"GET\"}]},\"clampStatus\":{\"readOnly\":true,\"description\":\"Reads the status of the clamp of the Cartesian robot. The status is true if the clamp is closed, and false if the clamp is open.\",\"type\":\"boolean\",\"writeOnly\":false,\"observable\":false,\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/storageRack/properties/clampStatus\",\"contentType\":\"application/json\",\"op\":[\"readproperty\"],\"htv:methodName\":\"GET\"}]},\"conveyorSpeed\":{\"description\":\"Reads and writes the speed (X axis) of the conveyor belt (and the Cartesian robot that moves along the belt) (in meters/sec). The maximum speed is 1 meter/sec.\",\"type\":\"number\",\"readOnly\":false,\"writeOnly\":false,\"observable\":false,\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/storageRack/properties/conveyorSpeed\",\"contentType\":\"application/json\",\"op\":[\"readproperty\",\"writeproperty\"]}]}},\"actions\":{\"pressEmergencyStop\":{\"description\":\"Turns off all active components of the machine: It sets the conveyor speed to 0, and a human operator is called to remove any items that have been placed on the conveyor belt.\",\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/storageRack/actions/pressEmergencyStop\",\"contentType\":\"application/json\",\"op\":[\"invokeaction\"],\"htv:methodName\":\"POST\"}],\"idempotent\":false,\"safe\":false},\"pickItem\":{\"description\":\"Picks an item from the storage rack and places it on the conveyor belt. E.g. to pick up the first item in the storage rack, the action must be invoked with input [0,0]. To monitor the state of the action, one can read the clamp status and the XZ-positions of the Cartesian robot. E.g. once the clamp is open again, the action has been completed.\",\"input\":{\"type\":\"array\",\"description\":\"Position of the item on the XZ-plane.\",\"maxItems\":2,\"minItems\":2,\"items\":{\"type\":\"number\"}},\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/storageRack/actions/pickItem\",\"contentType\":\"application/json\",\"op\":[\"invokeaction\"],\"htv:methodName\":\"POST\"}],\"idempotent\":false,\"safe\":false}},\"@type\":\"Thing\",\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/storageRack/all/properties\",\"contentType\":\"application/json\",\"op\":[\"readallproperties\",\"readmultipleproperties\",\"writeallproperties\",\"writemultipleproperties\"]}]}",
+        "http": true,
+        "ws": false,
+        "coap": false,
+        "mqtt": false,
+        "opcua": false,
+        "modbus": false,
+        "basicAuth": true,
+        "username": "simu2",
+        "password": "simu2"
+    },
+    {
+        "id": "a0654156d033d221",
+        "type": "consumed-thing",
+        "tdLink": "",
+        "td": "{\"@context\":\"https://www.w3.org/2019/wot/td/v1\",\"id\":\"tag:fillingWorkshop\",\"title\":\"fillingWorkshop\",\"description\":\"DX10 filling workshop with a Cartesian robot, a filler (with a magnetic valve) attached to the Cartesian robot and a conveyor belt. The machine is configured such that: 1) once the optical sensor at the start of the belt detects an item, the magnetic valve of the filler opens and the Cartesian robot starts to move along the X axis (at the speed of the belt) above the item. 2) Once a preconfigured amount of product has been poured by the filler, the valve closes and the robot returns to its initial X coordinate at maximum speed while the item keeps moving towards the end of the conveyor.\",\"securityDefinitions\":{\"with_auth\":{\"scheme\":\"basic\"}},\"security\":[\"with_auth\"],\"properties\":{\"stackLightStatus\":{\"readOnly\":true,\"description\":\"Reads the status of the workshop (e.g. the status is 'yellow' when the workshop is resetting.)\",\"enum\":[\"green\",\"yellow\",\"red\"],\"writeOnly\":false,\"observable\":false,\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/fillingWorkshop/properties/stackLightStatus\",\"contentType\":\"application/json\",\"op\":[\"readproperty\"],\"htv:methodName\":\"GET\"}]},\"conveyorSpeed\":{\"description\":\"Reads and writes the speed (X axis) of the conveyor belt (and the Cartesian robot that moves along the belt) (in meters/sec). The maximum speed is 1 meter/sec.\",\"type\":\"number\",\"readOnly\":false,\"writeOnly\":false,\"observable\":false,\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/fillingWorkshop/properties/conveyorSpeed\",\"contentType\":\"application/json\",\"op\":[\"readproperty\",\"writeproperty\"]}]},\"conveyorHeadStatus\":{\"readOnly\":true,\"description\":\"Reads the status of the optical sensor that detects whether an item is positioned at the end of the conveyor belt.\",\"type\":\"boolean\",\"writeOnly\":false,\"observable\":false,\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/fillingWorkshop/properties/conveyorHeadStatus\",\"contentType\":\"application/json\",\"op\":[\"readproperty\"],\"htv:methodName\":\"GET\"}]},\"magneticValveStatus\":{\"readOnly\":true,\"description\":\"Reads the status of the magnetic valve which controls the product flow of the tank. When the status is true, product (e.g. yogurt) is flowing from the tank to an item (e.g. a container).\",\"type\":\"boolean\",\"writeOnly\":false,\"observable\":false,\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/fillingWorkshop/properties/magneticValveStatus\",\"contentType\":\"application/json\",\"op\":[\"readproperty\"],\"htv:methodName\":\"GET\"}]},\"opticalSensorStatus\":{\"readOnly\":true,\"description\":\"Reads the status of the optical sensor that detects whether an item is positioned at the start of the conveyor belt under the filler.\",\"type\":\"boolean\",\"writeOnly\":false,\"observable\":false,\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/fillingWorkshop/properties/opticalSensorStatus\",\"contentType\":\"application/json\",\"op\":[\"readproperty\"],\"htv:methodName\":\"GET\"}]},\"tankLevel\":{\"readOnly\":true,\"description\":\"Reads the quantity of product in the tank (in liters).\",\"type\":\"number\",\"writeOnly\":false,\"observable\":false,\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/fillingWorkshop/properties/tankLevel\",\"contentType\":\"application/json\",\"op\":[\"readproperty\"],\"htv:methodName\":\"GET\"}]},\"positionX\":{\"readOnly\":true,\"description\":\"Reads the position of the Cartesian motor on the X axis (in meters).\",\"type\":\"number\",\"writeOnly\":false,\"observable\":false,\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/fillingWorkshop/properties/positionX\",\"contentType\":\"application/json\",\"op\":[\"readproperty\"],\"htv:methodName\":\"GET\"}]}},\"actions\":{\"pressEmergencyStop\":{\"description\":\"Turns off all active components of the machine: It sets the conveyor speed to 0, it closes the filler`s magnetic valve, it returns the Cartesian robot (and the attached filler) to its home position at the start of the belt, and a human operator is called to remove any items that have been placed on the conveyor belt.\",\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/fillingWorkshop/actions/pressEmergencyStop\",\"contentType\":\"application/json\",\"op\":[\"invokeaction\"],\"htv:methodName\":\"POST\"}],\"idempotent\":false,\"safe\":false}},\"@type\":\"Thing\",\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/fillingWorkshop/all/properties\",\"contentType\":\"application/json\",\"op\":[\"readallproperties\",\"readmultipleproperties\",\"writeallproperties\",\"writemultipleproperties\"]}]}",
+        "http": true,
+        "ws": false,
+        "coap": false,
+        "mqtt": false,
+        "opcua": false,
+        "modbus": false,
+        "basicAuth": true,
+        "username": "simu2",
+        "password": "simu2"
+    },
+    {
+        "id": "a27e4c2d0dca2bf4",
+        "type": "consumed-thing",
+        "tdLink": "",
+        "td": "{\"@context\":\"https://www.w3.org/2019/wot/td/v1\",\"id\":\"tag:cupProvider\",\"title\":\"cupProvider\",\"securityDefinitions\":{\"with_auth\":{\"scheme\":\"basic\"}},\"security\":[\"with_auth\"],\"actions\":{\"order\":{\"description\":\"order a certain quantity of cups\",\"input\":{\"type\":\"integer\"},\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/cupProvider/actions/order\",\"contentType\":\"application/json\",\"op\":[\"invokeaction\"],\"htv:methodName\":\"POST\"}],\"idempotent\":false,\"safe\":false},\"orderPackages\":{\"description\":\"order a certain quantity of empty packages\",\"input\":{\"type\":\"integer\"},\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/cupProvider/actions/orderPackages\",\"contentType\":\"application/json\",\"op\":[\"invokeaction\"],\"htv:methodName\":\"POST\"}],\"idempotent\":false,\"safe\":false}},\"events\":{\"delivered\":{\"description\":\"indicates how many cups have been delivered\",\"data\":{\"type\":\"integer\"},\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/cupProvider/events/delivered\",\"contentType\":\"application/json\",\"subprotocol\":\"longpoll\",\"op\":[\"subscribeevent\"]}]},\"deliveredPackages\":{\"description\":\"indicates how many packages have been delivered\",\"data\":{\"type\":\"integer\"},\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/cupProvider/events/deliveredPackages\",\"contentType\":\"application/json\",\"subprotocol\":\"longpoll\",\"op\":[\"subscribeevent\"]}]}},\"@type\":\"Thing\",\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/cupProvider/all/properties\",\"contentType\":\"application/json\",\"op\":[\"readallproperties\",\"readmultipleproperties\"]}]}",
+        "http": true,
+        "ws": false,
+        "coap": false,
+        "mqtt": false,
+        "opcua": false,
+        "modbus": false,
+        "basicAuth": true,
+        "username": "simu2",
+        "password": "simu2"
+    },
+    {
+        "id": "8ee87d6d8b1b13f9",
+        "type": "consumed-thing",
+        "tdLink": "",
+        "td": "{\"@context\":\"https://www.w3.org/2019/wot/td/v1\",\"id\":\"tag:robotArm\",\"title\":\"robotArm\",\"description\":\"6-axis robot arm with an attached gripper.\",\"securityDefinitions\":{\"with_auth\":{\"scheme\":\"basic\"}},\"security\":[\"with_auth\"],\"properties\":{\"stackLightStatus\":{\"readOnly\":true,\"description\":\"Reads the status of the workshop (e.g. the status is 'yellow' when the workshop is resetting.)\",\"enum\":[\"green\",\"yellow\",\"red\"],\"writeOnly\":false,\"observable\":false,\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/robotArm/properties/stackLightStatus\",\"contentType\":\"application/json\",\"op\":[\"readproperty\"],\"htv:methodName\":\"GET\"}]},\"inMovement\":{\"readOnly\":true,\"description\":\"Reads the movement status of the robot. The status is true if the robot is in movement.\",\"type\":\"boolean\",\"writeOnly\":false,\"observable\":false,\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/robotArm/properties/inMovement\",\"contentType\":\"application/json\",\"op\":[\"readproperty\"],\"htv:methodName\":\"GET\"}]},\"grasping\":{\"readOnly\":true,\"description\":\"Reads the grasping status of the robot. The status is true if gripper is closed. The status is false if the gripper is open.\",\"type\":\"boolean\",\"writeOnly\":false,\"observable\":false,\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/robotArm/properties/grasping\",\"contentType\":\"application/json\",\"op\":[\"readproperty\"],\"htv:methodName\":\"GET\"}]}},\"actions\":{\"pressEmergencyStop\":{\"description\":\"Turns off all active components of the machine: It opens the gripper, and it cancels on-going movement tasks.\",\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/robotArm/actions/pressEmergencyStop\",\"contentType\":\"application/json\",\"op\":[\"invokeaction\"],\"htv:methodName\":\"POST\"}],\"idempotent\":false,\"safe\":false},\"moveTo\":{\"description\":\"Moves the robot arm`s hand on the XYZ coordinate system.\",\"input\":{\"type\":\"object\",\"properties\":{\"x\":{\"type\":\"number\"},\"y\":{\"type\":\"number\"},\"z\":{\"type\":\"number\"}},\"required\":[\"x\",\"y\",\"z\"]},\"output\":{\"type\":\"boolean\"},\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/robotArm/actions/moveTo\",\"contentType\":\"application/json\",\"op\":[\"invokeaction\"],\"htv:methodName\":\"POST\"}],\"idempotent\":false,\"safe\":false},\"grasp\":{\"description\":\"Closes the gripper to grasp the item that is right under the robot arm's hand. The grasping is performed only if the gripper is currently open and an item is positioned under robot arm's hand.\",\"output\":{\"type\":\"boolean\"},\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/robotArm/actions/grasp\",\"contentType\":\"application/json\",\"op\":[\"invokeaction\"],\"htv:methodName\":\"POST\"}],\"idempotent\":false,\"safe\":false},\"release\":{\"description\":\"Opens the gripper to release an item.\",\"output\":{\"type\":\"boolean\"},\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/robotArm/actions/release\",\"contentType\":\"application/json\",\"op\":[\"invokeaction\"],\"htv:methodName\":\"POST\"}],\"idempotent\":false,\"safe\":false}},\"@type\":\"Thing\",\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/robotArm/all/properties\",\"contentType\":\"application/json\",\"op\":[\"readallproperties\",\"readmultipleproperties\"]}]}",
+        "http": true,
+        "ws": false,
+        "coap": false,
+        "mqtt": false,
+        "opcua": false,
+        "modbus": false,
+        "basicAuth": true,
+        "username": "simu2",
+        "password": "simu2"
+    },
+    {
+        "id": "e255ccde89e0b414",
+        "type": "consumed-thing",
+        "tdLink": "",
+        "td": "{\"@context\":\"https://www.w3.org/2019/wot/td/v1\",\"id\":\"tag:dairyProductProvider\",\"title\":\"dairyProductProvider\",\"securityDefinitions\":{\"with_auth\":{\"scheme\":\"basic\"}},\"security\":[\"with_auth\"],\"actions\":{\"order\":{\"description\":\"order a certain volume of dairy product\",\"input\":{\"type\":\"number\"},\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/dairyProductProvider/actions/order\",\"contentType\":\"application/json\",\"op\":[\"invokeaction\"],\"htv:methodName\":\"POST\"}],\"idempotent\":false,\"safe\":false}},\"events\":{\"delivered\":{\"description\":\"indicates what volume has been delivered\",\"data\":{\"type\":\"number\"},\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/dairyProductProvider/events/delivered\",\"contentType\":\"application/json\",\"subprotocol\":\"longpoll\",\"op\":[\"subscribeevent\"]}]}},\"@type\":\"Thing\",\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/dairyProductProvider/all/properties\",\"contentType\":\"application/json\",\"op\":[\"readallproperties\",\"readmultipleproperties\"]}]}",
+        "http": true,
+        "ws": false,
+        "coap": false,
+        "mqtt": false,
+        "opcua": false,
+        "modbus": false,
+        "basicAuth": true,
+        "username": "simu2",
+        "password": "simu2"
+    },
+    {
+        "id": "ad63f818c4a40908",
+        "type": "ui_tab",
+        "name": "ITm Factory - Monitoring",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "d596cdc71009532d",
+        "type": "ui_group",
+        "name": "Conveying Workshop",
+        "tab": "ad63f818c4a40908",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "4e1b22714ad698f5",
+        "type": "ui_group",
+        "name": "Filling Workshop",
+        "tab": "ad63f818c4a40908",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "1eb94c06701f7eb8",
+        "type": "ui_group",
+        "name": "Potting Workshop",
+        "tab": "ad63f818c4a40908",
+        "order": 3,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "49b00d66d72984ff",
+        "type": "consumed-thing",
+        "tdLink": "",
+        "td": "{\"@context\":\"https://www.w3.org/2019/wot/td/v1\",\"id\":\"tag:packagingWorkshop\",\"title\":\"packagingWorkshop\",\"description\":\"XY10 packaging workshop\",\"securityDefinitions\":{\"with_auth\":{\"scheme\":\"basic\"}},\"security\":[\"with_auth\"],\"properties\":{\"stackLightStatus\":{\"readOnly\":true,\"description\":\"Reads the status of the workshop (e.g. the status is 'yellow' when the workshop is resetting.)\",\"enum\":[\"green\",\"yellow\",\"red\"],\"writeOnly\":false,\"observable\":false,\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/packagingWorkshop/properties/stackLightStatus\",\"contentType\":\"application/json\",\"op\":[\"readproperty\"],\"htv:methodName\":\"GET\"}]},\"conveyorSpeed\":{\"description\":\"Reads and writes the speed (X axis) of the conveyor belt (in meters/sec). The maximum speed is 1 meter/sec.\",\"type\":\"number\",\"readOnly\":false,\"writeOnly\":false,\"observable\":false,\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/packagingWorkshop/properties/conveyorSpeed\",\"contentType\":\"application/json\",\"op\":[\"readproperty\",\"writeproperty\"]}]},\"packageBuffer\":{\"readOnly\":true,\"description\":\"Reads the number of available packages in storage.\",\"type\":\"number\",\"writeOnly\":false,\"observable\":false,\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/packagingWorkshop/properties/packageBuffer\",\"contentType\":\"application/json\",\"op\":[\"readproperty\"],\"htv:methodName\":\"GET\"}]},\"opticalSensorPackage\":{\"readOnly\":true,\"description\":\"Reads the status of the optical sensor that detects whether a package is on the coveyor.\",\"type\":\"boolean\",\"writeOnly\":false,\"observable\":false,\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/packagingWorkshop/properties/opticalSensorPackage\",\"contentType\":\"application/json\",\"op\":[\"readproperty\"],\"htv:methodName\":\"GET\"}]},\"opticalSensorContainer1\":{\"readOnly\":true,\"description\":\"Reads the status of the optical sensor that detects whether a container is first position.\",\"type\":\"boolean\",\"writeOnly\":false,\"observable\":false,\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/packagingWorkshop/properties/opticalSensorContainer1\",\"contentType\":\"application/json\",\"op\":[\"readproperty\"],\"htv:methodName\":\"GET\"}]},\"opticalSensorContainer2\":{\"readOnly\":true,\"description\":\"Reads the status of the optical sensor that detects whether a container is first position.\",\"type\":\"boolean\",\"writeOnly\":false,\"observable\":false,\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/packagingWorkshop/properties/opticalSensorContainer2\",\"contentType\":\"application/json\",\"op\":[\"readproperty\"],\"htv:methodName\":\"GET\"}]},\"conveyorHeadStatus\":{\"readOnly\":true,\"description\":\"Reads the status of the optical sensor that detects whether an item is positioned at the end of the conveyor belt.\",\"type\":\"boolean\",\"writeOnly\":false,\"observable\":false,\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/packagingWorkshop/properties/conveyorHeadStatus\",\"contentType\":\"application/json\",\"op\":[\"readproperty\"],\"htv:methodName\":\"GET\"}]}},\"actions\":{\"pressEmergencyStop\":{\"description\":\"Turns off all active components of the machine: It sets the conveyor speed to 0, and a human operator is called to remove any items that have been placed on the conveyor belt.\",\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/packagingWorkshop/actions/pressEmergencyStop\",\"contentType\":\"application/json\",\"op\":[\"invokeaction\"],\"htv:methodName\":\"POST\"}],\"idempotent\":false,\"safe\":false}},\"@type\":\"Thing\",\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/packagingWorkshop/all/properties\",\"contentType\":\"application/json\",\"op\":[\"readallproperties\",\"readmultipleproperties\",\"writeallproperties\",\"writemultipleproperties\"]}]}",
+        "http": true,
+        "ws": false,
+        "coap": false,
+        "mqtt": false,
+        "opcua": false,
+        "modbus": false,
+        "basicAuth": true,
+        "username": "simu2",
+        "password": "simu2"
+    },
+    {
+        "id": "79506e97d9eae7c9",
+        "type": "ui_group",
+        "name": "Packing Workshop",
+        "tab": "ad63f818c4a40908",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "43252d8c58fcb698",
+        "type": "consumed-thing",
+        "tdLink": "",
+        "td": "{\"@context\":\"https://www.w3.org/2019/wot/td/v1\",\"id\":\"tag:factory\",\"title\":\"factory\",\"description\":\"Whole ITm factory, exposing bookkeeping properties\",\"securityDefinitions\":{\"with_auth\":{\"scheme\":\"basic\"}},\"security\":[\"with_auth\"],\"properties\":{\"deliveryBook\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"type\":\"string\",\"date\":\"string\",\"quantity\":\"number\"},\"required\":[\"type\",\"date\",\"quantity\"]},\"readOnly\":false,\"writeOnly\":false,\"observable\":false,\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/factory/properties/deliveryBook\",\"contentType\":\"application/json\",\"op\":[\"readproperty\",\"writeproperty\"]}]},\"shippingBook\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"date\":\"string\"},\"required\":[\"date\"]},\"readOnly\":false,\"writeOnly\":false,\"observable\":false,\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/factory/properties/shippingBook\",\"contentType\":\"application/json\",\"op\":[\"readproperty\",\"writeproperty\"]}]}},\"actions\":{\"reset\":{\"description\":\"Resets the simulation environment. It presses the emergency stop buttons of all workshops and orders new consumables from the providers.\",\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/factory/actions/reset\",\"contentType\":\"application/json\",\"op\":[\"invokeaction\"],\"htv:methodName\":\"POST\"}],\"idempotent\":false,\"safe\":false}},\"@type\":\"Thing\",\"forms\":[{\"href\":\"https://ci.mines-stetienne.fr/simu/factory/all/properties\",\"contentType\":\"application/json\",\"op\":[\"writeallproperties\",\"writemultipleproperties\"]}]}",
+        "http": true,
+        "ws": false,
+        "coap": false,
+        "mqtt": false,
+        "opcua": false,
+        "modbus": false,
+        "basicAuth": true,
+        "username": "simu2",
+        "password": "simu2"
+    },
+    {
+        "id": "f19565ed4af96062",
+        "type": "ui_tab",
+        "name": "ITm Factory - History",
+        "icon": "dashboard",
+        "order": 4,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "89e7e371f183bcd0",
+        "type": "ui_group",
+        "name": "Conveying History",
+        "tab": "f19565ed4af96062",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "dc5f1ee717f0219f",
+        "type": "ui_group",
+        "name": "Filling History",
+        "tab": "f19565ed4af96062",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "47eb14e2e4f1e7f3",
+        "type": "ui_group",
+        "name": "Factory",
+        "tab": "f19565ed4af96062",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "6bde15a0aa94a2b2",
+        "type": "ui_tab",
+        "name": "ITm Factory - Interaction",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "2dbfe402fd38dfce",
+        "type": "ui_group",
+        "name": "Conveyer Workshop",
+        "tab": "6bde15a0aa94a2b2",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c0ecb1d33d92b1fd",
+        "type": "ui_group",
+        "name": "Packing Workshop",
+        "tab": "6bde15a0aa94a2b2",
+        "order": 4,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "0909bc64af062bef",
+        "type": "ui_group",
+        "name": "Filling Workshop",
+        "tab": "6bde15a0aa94a2b2",
+        "order": 2,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3a4abb6b96aa3121",
+        "type": "ui_group",
+        "name": "Potting Workshop",
+        "tab": "6bde15a0aa94a2b2",
+        "order": 3,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "4edb61e3561ce04c",
+        "type": "consumed-thing",
+        "tdLink": "",
+        "td": "",
+        "http": false,
+        "ws": false,
+        "coap": false,
+        "mqtt": false,
+        "opcua": false,
+        "modbus": false,
+        "basicAuth": false,
+        "username": "",
+        "password": ""
+    },
+    {
+        "id": "abf3fbbe332cd276",
+        "type": "ui_group",
+        "name": "Factory",
+        "tab": "6bde15a0aa94a2b2",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "4d1179f5d5ee9b5d",
+        "type": "ui_group",
+        "name": "Packing History",
+        "tab": "f19565ed4af96062",
+        "order": 4,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "988ee12c92d07f5a",
+        "type": "function",
+        "z": "c47edea89723bf87",
+        "name": "Packages delivered",
+        "func": "msg.payload = \"Delivered \" + msg.payload + \" packages\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 400,
+        "wires": [
+            [
+                "0681355aa1ec078c"
+            ]
+        ]
+    },
+    {
+        "id": "1a4da8287ab275d6",
+        "type": "function",
+        "z": "c47edea89723bf87",
+        "name": "Yogurt delivered",
+        "func": "msg.payload = \"Delivered \" + msg.payload + \" yogurt\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 480,
+        "wires": [
+            [
+                "0681355aa1ec078c"
+            ]
+        ]
+    },
+    {
+        "id": "84de0894ac337f69",
+        "type": "function",
+        "z": "c47edea89723bf87",
+        "name": "Cups delivered",
+        "func": "msg.payload = \"Delivered \" + msg.payload + \" cups\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 320,
+        "wires": [
+            [
+                "0681355aa1ec078c"
+            ]
+        ]
+    },
+    {
+        "id": "5d688723803a0837",
+        "type": "invoke-action",
+        "z": "c47edea89723bf87",
+        "name": "",
+        "topic": "",
+        "thing": "a27e4c2d0dca2bf4",
+        "action": "order",
+        "uriVariables": "",
+        "x": 610,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cc78939742eaea65",
+        "type": "invoke-action",
+        "z": "c47edea89723bf87",
+        "name": "",
+        "topic": "",
+        "thing": "a27e4c2d0dca2bf4",
+        "action": "orderPackages",
+        "uriVariables": "",
+        "x": 640,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fc0ea7df19af2d35",
+        "type": "invoke-action",
+        "z": "c47edea89723bf87",
+        "name": "",
+        "topic": "",
+        "thing": "e255ccde89e0b414",
+        "action": "order",
+        "uriVariables": "",
+        "x": 610,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cd932c998dfd1f8a",
+        "type": "subscribe-event",
+        "z": "c47edea89723bf87",
+        "name": "",
+        "topic": "",
+        "thing": "a27e4c2d0dca2bf4",
+        "event": "delivered",
+        "x": 320,
+        "y": 320,
+        "wires": [
+            [
+                "84de0894ac337f69"
+            ]
+        ]
+    },
+    {
+        "id": "58609336719c111d",
+        "type": "subscribe-event",
+        "z": "c47edea89723bf87",
+        "name": "",
+        "topic": "",
+        "thing": "a27e4c2d0dca2bf4",
+        "event": "deliveredPackages",
+        "x": 350,
+        "y": 400,
+        "wires": [
+            [
+                "988ee12c92d07f5a"
+            ]
+        ]
+    },
+    {
+        "id": "25b7b18acbb9a88f",
+        "type": "subscribe-event",
+        "z": "c47edea89723bf87",
+        "name": "",
+        "topic": "",
+        "thing": "e255ccde89e0b414",
+        "event": "delivered",
+        "x": 320,
+        "y": 480,
+        "wires": [
+            [
+                "1a4da8287ab275d6"
+            ]
+        ]
+    },
+    {
+        "id": "3b08bf1f609ddf73",
+        "type": "ui_button",
+        "z": "c47edea89723bf87",
+        "name": "",
+        "group": "2dbfe402fd38dfce",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Order 25 Cups",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "green",
+        "className": "",
+        "icon": "",
+        "payload": "25",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 320,
+        "y": 540,
+        "wires": [
+            [
+                "5d688723803a0837"
+            ]
+        ]
+    },
+    {
+        "id": "3de81432bff20793",
+        "type": "ui_button",
+        "z": "c47edea89723bf87",
+        "name": "",
+        "group": "c0ecb1d33d92b1fd",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Order 10 Packages",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "green",
+        "className": "",
+        "icon": "",
+        "payload": "10",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 330,
+        "y": 600,
+        "wires": [
+            [
+                "cc78939742eaea65"
+            ]
+        ]
+    },
+    {
+        "id": "45ee29cd1ef43d9d",
+        "type": "ui_button",
+        "z": "c47edea89723bf87",
+        "name": "",
+        "group": "0909bc64af062bef",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Fullfill Yogurt",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "green",
+        "className": "",
+        "icon": "",
+        "payload": "1000",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 310,
+        "y": 660,
+        "wires": [
+            [
+                "fc0ea7df19af2d35"
+            ]
+        ]
+    },
+    {
+        "id": "0681355aa1ec078c",
+        "type": "ui_toast",
+        "z": "c47edea89723bf87",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 900,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "143e1b83f55e7056",
+        "type": "ui_slider",
+        "z": "c47edea89723bf87",
+        "name": "",
+        "label": "Storage Rack Conveyor ",
+        "tooltip": "",
+        "group": "2dbfe402fd38dfce",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "payload",
+        "topicType": "msg",
+        "min": 0,
+        "max": "1",
+        "step": "0.1",
+        "className": "",
+        "x": 350,
+        "y": 720,
+        "wires": [
+            [
+                "bb56a4f6ba339c97"
+            ]
+        ]
+    },
+    {
+        "id": "bb56a4f6ba339c97",
+        "type": "write-property",
+        "z": "c47edea89723bf87",
+        "name": "",
+        "topic": "",
+        "thing": "216106bbbcac44a8",
+        "property": "conveyorSpeed",
+        "uriVariables": "",
+        "x": 650,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "a6855e9152089869",
+        "type": "ui_slider",
+        "z": "c47edea89723bf87",
+        "name": "",
+        "label": "Filling Conveyor ",
+        "tooltip": "",
+        "group": "0909bc64af062bef",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "payload",
+        "topicType": "msg",
+        "min": 0,
+        "max": "1",
+        "step": "0.1",
+        "className": "",
+        "x": 320,
+        "y": 780,
+        "wires": [
+            [
+                "d5d5ec8473ca4e98"
+            ]
+        ]
+    },
+    {
+        "id": "d5d5ec8473ca4e98",
+        "type": "write-property",
+        "z": "c47edea89723bf87",
+        "name": "",
+        "topic": "",
+        "thing": "a0654156d033d221",
+        "property": "conveyorSpeed",
+        "uriVariables": "",
+        "x": 650,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "0a38f32809a734f9",
+        "type": "ui_slider",
+        "z": "c47edea89723bf87",
+        "name": "",
+        "label": "Packing Conveyor",
+        "tooltip": "",
+        "group": "c0ecb1d33d92b1fd",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "payload",
+        "topicType": "msg",
+        "min": 0,
+        "max": "1",
+        "step": "0.1",
+        "className": "",
+        "x": 330,
+        "y": 840,
+        "wires": [
+            [
+                "ebdee7d92e3b4ffa"
+            ]
+        ]
+    },
+    {
+        "id": "ebdee7d92e3b4ffa",
+        "type": "write-property",
+        "z": "c47edea89723bf87",
+        "name": "",
+        "topic": "",
+        "thing": "49b00d66d72984ff",
+        "property": "conveyorSpeed",
+        "uriVariables": "",
+        "x": 650,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "e32db7e128542ab3",
+        "type": "invoke-action",
+        "z": "c47edea89723bf87",
+        "name": "",
+        "topic": "",
+        "thing": "43252d8c58fcb698",
+        "action": "reset",
+        "uriVariables": "",
+        "x": 610,
+        "y": 960,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f3a305486aa3f602",
+        "type": "ui_button",
+        "z": "c47edea89723bf87",
+        "name": "",
+        "group": "abf3fbbe332cd276",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Reset",
+        "tooltip": "",
+        "color": "white",
+        "bgcolor": "red",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 290,
+        "y": 960,
+        "wires": [
+            [
+                "e32db7e128542ab3"
+            ]
+        ]
+    },
+    {
+        "id": "4006ab42b41ef689",
+        "type": "ui_form",
+        "z": "c47edea89723bf87",
+        "name": "Delivery Cup to the Conveyor",
+        "label": "Delivery Cup to the Conveyor",
+        "group": "2dbfe402fd38dfce",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Cup X",
+                "value": "X",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Cup Y",
+                "value": "Y",
+                "type": "number",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "X": "",
+            "Y": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "payload",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 360,
+        "y": 900,
+        "wires": [
+            [
+                "d11521b13c1dd83f"
+            ]
+        ]
+    },
+    {
+        "id": "d11521b13c1dd83f",
+        "type": "function",
+        "z": "c47edea89723bf87",
+        "name": "serializeXandYPosition",
+        "func": "var newpayload = { payload: [msg.payload[\"X\"], msg.payload[\"Y\"]] }\nreturn newpayload;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 900,
+        "wires": [
+            [
+                "6f010906cbe267e8"
+            ]
+        ]
+    },
+    {
+        "id": "6f010906cbe267e8",
+        "type": "invoke-action",
+        "z": "c47edea89723bf87",
+        "name": "",
+        "topic": "",
+        "thing": "216106bbbcac44a8",
+        "action": "pickItem",
+        "uriVariables": "",
+        "x": 900,
+        "y": 900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0b9ab8c0f85e4875",
+        "type": "ui_button",
+        "z": "c47edea89723bf87",
+        "name": "",
+        "group": "abf3fbbe332cd276",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Start MAS Simulation",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 340,
+        "y": 1020,
+        "wires": [
+            [
+                "9681a95353344b82"
+            ]
+        ]
+    },
+    {
+        "id": "78698cff0fad467c",
+        "type": "http request",
+        "z": "c47edea89723bf87",
+        "name": "requestHTTP",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://localhost:5000/start",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "application/json",
+                "valueValue": ""
+            }
+        ],
+        "x": 770,
+        "y": 1020,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9681a95353344b82",
+        "type": "function",
+        "z": "c47edea89723bf87",
+        "name": "requestData",
+        "func": "msg.headers = {\n    \"Content-Type\": \"application/json\"\n};\nmsg.payload = {\n    command: \"start\"\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 1020,
+        "wires": [
+            [
+                "78698cff0fad467c"
+            ]
+        ]
+    },
+    {
+        "id": "6bbffc9a1af02b0b",
+        "type": "ui_form",
+        "z": "c47edea89723bf87",
+        "name": "Delivery Cup to the Conveyor",
+        "label": "Delivery Cup for Packing",
+        "group": "3a4abb6b96aa3121",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Arm X",
+                "value": "X",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Arm Y",
+                "value": "Y",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Arm Z",
+                "value": "Z",
+                "type": "number",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "X": "",
+            "Y": "",
+            "Z": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "payload",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 360,
+        "y": 1080,
+        "wires": [
+            [
+                "7592c3879acd38c2"
+            ]
+        ]
+    },
+    {
+        "id": "7592c3879acd38c2",
+        "type": "function",
+        "z": "c47edea89723bf87",
+        "name": "serializeXandYPosition",
+        "func": "var newpayload = { \n    payload: { \n        x: msg.payload[\"X\"], \n        y: msg.payload[\"Y\"], \n        z: msg.payload[\"Z\"]\n        }\n    }\nreturn newpayload;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 1080,
+        "wires": [
+            [
+                "d282a140bcb0a7e1"
+            ]
+        ]
+    },
+    {
+        "id": "d282a140bcb0a7e1",
+        "type": "invoke-action",
+        "z": "c47edea89723bf87",
+        "name": "",
+        "topic": "",
+        "thing": "8ee87d6d8b1b13f9",
+        "action": "moveTo",
+        "uriVariables": "",
+        "x": 900,
+        "y": 1080,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c7db854fbf367836",
+        "type": "invoke-action",
+        "z": "c47edea89723bf87",
+        "name": "",
+        "topic": "",
+        "thing": "8ee87d6d8b1b13f9",
+        "action": "grasp",
+        "uriVariables": "",
+        "x": 610,
+        "y": 1140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ac9c7d3145ec1ac0",
+        "type": "ui_button",
+        "z": "c47edea89723bf87",
+        "name": "",
+        "group": "3a4abb6b96aa3121",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Robot Arm Grasp",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "green",
+        "className": "",
+        "icon": "",
+        "payload": "1000",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 330,
+        "y": 1140,
+        "wires": [
+            [
+                "c7db854fbf367836"
+            ]
+        ]
+    },
+    {
+        "id": "4fcf3a9f61face87",
+        "type": "invoke-action",
+        "z": "c47edea89723bf87",
+        "name": "",
+        "topic": "",
+        "thing": "8ee87d6d8b1b13f9",
+        "action": "release",
+        "uriVariables": "",
+        "x": 620,
+        "y": 1200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "aa225f302ab1cf26",
+        "type": "ui_button",
+        "z": "c47edea89723bf87",
+        "name": "",
+        "group": "3a4abb6b96aa3121",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Robot Arm Drop",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "green",
+        "className": "",
+        "icon": "",
+        "payload": "1000",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 320,
+        "y": 1200,
+        "wires": [
+            [
+                "4fcf3a9f61face87"
+            ]
+        ]
+    },
+    {
+        "id": "47b769c5.cb0e28",
+        "type": "join",
+        "z": "b06bfa5017fc0d79",
+        "name": "",
+        "mode": "custom",
+        "build": "array",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 510,
+        "y": 600,
+        "wires": [
+            [
+                "c293d470f0ef5e06"
+            ]
+        ]
+    },
+    {
+        "id": "8608c8276ddee81c",
+        "type": "read-property",
+        "z": "b06bfa5017fc0d79",
+        "name": "",
+        "topic": "",
+        "thing": "216106bbbcac44a8",
+        "property": "stackLightStatus",
+        "uriVariables": "",
+        "interval": "2",
+        "observe": false,
+        "x": 290,
+        "y": 220,
+        "wires": [
+            [
+                "6111af1f9da1cf51"
+            ]
+        ]
+    },
+    {
+        "id": "4d1621f0e3ea7dd2",
+        "type": "read-property",
+        "z": "b06bfa5017fc0d79",
+        "name": "",
+        "topic": "",
+        "thing": "216106bbbcac44a8",
+        "property": "capacity",
+        "uriVariables": "",
+        "interval": "2",
+        "observe": false,
+        "x": 270,
+        "y": 300,
+        "wires": [
+            [
+                "3ea7f5542cf20092"
+            ]
+        ]
+    },
+    {
+        "id": "74af5c2bb9409fe7",
+        "type": "read-property",
+        "z": "b06bfa5017fc0d79",
+        "name": "",
+        "topic": "",
+        "thing": "216106bbbcac44a8",
+        "property": "clampStatus",
+        "uriVariables": "",
+        "interval": "2",
+        "observe": false,
+        "x": 280,
+        "y": 380,
+        "wires": [
+            [
+                "ddee8545f29a7922"
+            ]
+        ]
+    },
+    {
+        "id": "a5c5bf69172c0ca2",
+        "type": "read-property",
+        "z": "b06bfa5017fc0d79",
+        "name": "",
+        "topic": "",
+        "thing": "216106bbbcac44a8",
+        "property": "conveyorSpeed",
+        "uriVariables": "",
+        "interval": "2",
+        "observe": false,
+        "x": 290,
+        "y": 460,
+        "wires": [
+            [
+                "feba55d7bd25620c"
+            ]
+        ]
+    },
+    {
+        "id": "206113b5173a04dc",
+        "type": "read-property",
+        "z": "b06bfa5017fc0d79",
+        "name": "",
+        "topic": "X",
+        "thing": "216106bbbcac44a8",
+        "property": "positionX",
+        "uriVariables": "",
+        "interval": "2",
+        "observe": false,
+        "x": 270,
+        "y": 560,
+        "wires": [
+            [
+                "35cf0ab17dec0dca",
+                "47b769c5.cb0e28"
+            ]
+        ]
+    },
+    {
+        "id": "3865f71616fece3a",
+        "type": "read-property",
+        "z": "b06bfa5017fc0d79",
+        "name": "",
+        "topic": "Z",
+        "thing": "216106bbbcac44a8",
+        "property": "positionZ",
+        "uriVariables": "",
+        "interval": "2",
+        "observe": false,
+        "x": 270,
+        "y": 640,
+        "wires": [
+            [
+                "fc91c01f34e1f1fc",
+                "47b769c5.cb0e28"
+            ]
+        ]
+    },
+    {
+        "id": "c37e2537c1a5f360",
+        "type": "invoke-action",
+        "z": "b06bfa5017fc0d79",
+        "name": "",
+        "topic": "",
+        "thing": "216106bbbcac44a8",
+        "action": "pressEmergencyStop",
+        "uriVariables": "",
+        "x": 600,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "63443d89de259757",
+        "type": "ui_button",
+        "z": "b06bfa5017fc0d79",
+        "name": "",
+        "group": "d596cdc71009532d",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Press Emergency Stop",
+        "tooltip": "",
+        "color": "write",
+        "bgcolor": "red",
+        "className": "",
+        "icon": "",
+        "payload": "{}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 280,
+        "y": 120,
+        "wires": [
+            [
+                "c37e2537c1a5f360"
+            ]
+        ]
+    },
+    {
+        "id": "3ea7f5542cf20092",
+        "type": "ui_text",
+        "z": "b06bfa5017fc0d79",
+        "group": "89e7e371f183bcd0",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Storage Rack Capacity",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 620,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "c293d470f0ef5e06",
+        "type": "ui_text",
+        "z": "b06bfa5017fc0d79",
+        "group": "d596cdc71009532d",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Clamp Position [X,Z]",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 720,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "35cf0ab17dec0dca",
+        "type": "ui_chart",
+        "z": "b06bfa5017fc0d79",
+        "name": "",
+        "group": "89e7e371f183bcd0",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Clamp Position X",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "5",
+        "removeOlder": "10",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 610,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fc91c01f34e1f1fc",
+        "type": "ui_chart",
+        "z": "b06bfa5017fc0d79",
+        "name": "",
+        "group": "89e7e371f183bcd0",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Clamp Position Z",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "5",
+        "removeOlder": "10",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 610,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ba4ca0c824ec60f3",
+        "type": "ui_gauge",
+        "z": "b06bfa5017fc0d79",
+        "name": "",
+        "group": "d596cdc71009532d",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Conveyor Speed",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#f5f5f5",
+            "#e6e600",
+            "#3acb43"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 810,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "83152daa65393271",
+        "type": "ui_text",
+        "z": "b06bfa5017fc0d79",
+        "group": "d596cdc71009532d",
+        "order": 1,
+        "width": 5,
+        "height": 1,
+        "name": "",
+        "label": "Status",
+        "format": "{{msg.status}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 790,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "6111af1f9da1cf51",
+        "type": "function",
+        "z": "b06bfa5017fc0d79",
+        "name": "verifyStatus",
+        "func": "let input = msg.payload;\n\nswitch (input) {\n    case \"green\":\n        msg.status = \"OK\";\n        msg.color = \"green\";\n        break;\n    case \"yellow\":\n        msg.status = \"Reseting\";\n        msg.color = \"yellow\";\n        break;\n    case \"red\":\n        msg.status = \"Stopped\";\n        msg.color = \"red\";\n        break;\n    default:\n        msg.status = \"Unknown\";\n        msg.color = \"gray\";\n        break;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 220,
+        "wires": [
+            [
+                "83152daa65393271",
+                "97015efc78b9ab15"
+            ]
+        ]
+    },
+    {
+        "id": "97015efc78b9ab15",
+        "type": "ui_colour_picker",
+        "z": "b06bfa5017fc0d79",
+        "name": "",
+        "label": "StatusC",
+        "group": "d596cdc71009532d",
+        "format": "hex",
+        "outformat": "string",
+        "showSwatch": true,
+        "showPicker": false,
+        "showValue": false,
+        "showHue": false,
+        "showAlpha": false,
+        "showLightness": true,
+        "square": "false",
+        "dynOutput": "false",
+        "order": 2,
+        "width": 1,
+        "height": 1,
+        "passthru": true,
+        "topic": "color",
+        "topicType": "msg",
+        "className": "",
+        "x": 800,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ddee8545f29a7922",
+        "type": "function",
+        "z": "b06bfa5017fc0d79",
+        "name": "verifyStatus",
+        "func": "let input = msg.payload;\n\nif (input == true) {\n    var newmsg = { payload: \"yellow\" };\n    return newmsg;\n}\nvar newmsg = { payload: \"green\" };\nreturn newmsg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 380,
+        "wires": [
+            [
+                "174e2304875e520d"
+            ]
+        ]
+    },
+    {
+        "id": "174e2304875e520d",
+        "type": "ui_colour_picker",
+        "z": "b06bfa5017fc0d79",
+        "name": "",
+        "label": "ClampStatus",
+        "group": "d596cdc71009532d",
+        "format": "hex",
+        "outformat": "string",
+        "showSwatch": true,
+        "showPicker": false,
+        "showValue": false,
+        "showHue": false,
+        "showAlpha": false,
+        "showLightness": true,
+        "square": "false",
+        "dynOutput": "false",
+        "order": 6,
+        "width": "1",
+        "height": 1,
+        "passthru": true,
+        "topic": "color",
+        "topicType": "msg",
+        "className": "",
+        "x": 810,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2fe647ee1499c009",
+        "type": "ui_text",
+        "z": "b06bfa5017fc0d79",
+        "group": "d596cdc71009532d",
+        "order": 5,
+        "width": "5",
+        "height": "1",
+        "name": "",
+        "label": "Clamp is available?",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 830,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "feba55d7bd25620c",
+        "type": "function",
+        "z": "b06bfa5017fc0d79",
+        "name": "percentageHandler",
+        "func": "msg.payload = msg.payload * 100;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 460,
+        "wires": [
+            [
+                "ba4ca0c824ec60f3"
+            ]
+        ]
+    },
+    {
+        "id": "f631d24050a9ed50",
+        "type": "read-property",
+        "z": "afe97e04980fad99",
+        "name": "",
+        "topic": "",
+        "thing": "a0654156d033d221",
+        "property": "stackLightStatus",
+        "uriVariables": "",
+        "interval": "2",
+        "observe": false,
+        "x": 290,
+        "y": 140,
+        "wires": [
+            [
+                "12b71fa6ef725169"
+            ]
+        ]
+    },
+    {
+        "id": "8506a717bdb33ec7",
+        "type": "read-property",
+        "z": "afe97e04980fad99",
+        "name": "",
+        "topic": "",
+        "thing": "a0654156d033d221",
+        "property": "conveyorSpeed",
+        "uriVariables": "",
+        "interval": "2",
+        "observe": false,
+        "x": 290,
+        "y": 720,
+        "wires": [
+            [
+                "6c6efc142521e2f2"
+            ]
+        ]
+    },
+    {
+        "id": "03c57fd392cee3f6",
+        "type": "read-property",
+        "z": "afe97e04980fad99",
+        "name": "",
+        "topic": "",
+        "thing": "a0654156d033d221",
+        "property": "conveyorHeadStatus",
+        "uriVariables": "",
+        "interval": "2",
+        "observe": false,
+        "x": 310,
+        "y": 220,
+        "wires": [
+            [
+                "718d039bec36ded9"
+            ]
+        ]
+    },
+    {
+        "id": "cc8ad6e8aa4a32a6",
+        "type": "read-property",
+        "z": "afe97e04980fad99",
+        "name": "",
+        "topic": "",
+        "thing": "a0654156d033d221",
+        "property": "magneticValveStatus",
+        "uriVariables": "",
+        "interval": "2",
+        "observe": false,
+        "x": 310,
+        "y": 300,
+        "wires": [
+            [
+                "86b01018c945b0e5"
+            ]
+        ]
+    },
+    {
+        "id": "d3275b01ee35397e",
+        "type": "read-property",
+        "z": "afe97e04980fad99",
+        "name": "",
+        "topic": "",
+        "thing": "a0654156d033d221",
+        "property": "opticalSensorStatus",
+        "uriVariables": "",
+        "interval": "2",
+        "observe": false,
+        "x": 300,
+        "y": 400,
+        "wires": [
+            [
+                "654b43e810e86630"
+            ]
+        ]
+    },
+    {
+        "id": "32aa61ecf5f8ae4d",
+        "type": "read-property",
+        "z": "afe97e04980fad99",
+        "name": "",
+        "topic": "",
+        "thing": "a0654156d033d221",
+        "property": "tankLevel",
+        "uriVariables": "",
+        "interval": "2",
+        "observe": false,
+        "x": 270,
+        "y": 520,
+        "wires": [
+            [
+                "250c61c43d9f0be1",
+                "6697cbde1e3e36c7"
+            ]
+        ]
+    },
+    {
+        "id": "22afce235d3e8606",
+        "type": "read-property",
+        "z": "afe97e04980fad99",
+        "name": "",
+        "topic": "",
+        "thing": "a0654156d033d221",
+        "property": "positionX",
+        "uriVariables": "",
+        "interval": "5",
+        "observe": false,
+        "x": 270,
+        "y": 640,
+        "wires": [
+            [
+                "178531772118569c"
+            ]
+        ]
+    },
+    {
+        "id": "0d8cb33f26db511d",
+        "type": "invoke-action",
+        "z": "afe97e04980fad99",
+        "name": "",
+        "topic": "",
+        "thing": "a0654156d033d221",
+        "action": "pressEmergencyStop",
+        "uriVariables": "",
+        "x": 600,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "93e6a5f6a0426f4f",
+        "type": "ui_button",
+        "z": "afe97e04980fad99",
+        "name": "",
+        "group": "4e1b22714ad698f5",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Press Emergency Stop",
+        "tooltip": "",
+        "color": "white",
+        "bgcolor": "red",
+        "className": "",
+        "icon": "",
+        "payload": "{}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 280,
+        "y": 60,
+        "wires": [
+            [
+                "0d8cb33f26db511d"
+            ]
+        ]
+    },
+    {
+        "id": "250c61c43d9f0be1",
+        "type": "ui_chart",
+        "z": "afe97e04980fad99",
+        "name": "",
+        "group": "dc5f1ee717f0219f",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Tank Level (Debug)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 610,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "178531772118569c",
+        "type": "ui_chart",
+        "z": "afe97e04980fad99",
+        "name": "",
+        "group": "dc5f1ee717f0219f",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Position X (Debug)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 610,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dbc3f1e87a2b3704",
+        "type": "ui_gauge",
+        "z": "afe97e04980fad99",
+        "name": "",
+        "group": "4e1b22714ad698f5",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Tank Level",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#bdc2bd",
+            "#63b66d",
+            "#16ca3a"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 830,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "f8d9160a952f89c7",
+        "type": "ui_gauge",
+        "z": "afe97e04980fad99",
+        "name": "",
+        "group": "4e1b22714ad698f5",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Conveyor Speed",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#f5f5f5",
+            "#e6e600",
+            "#3acb43"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 790,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "d3e6d891c3c974fb",
+        "type": "ui_text",
+        "z": "afe97e04980fad99",
+        "group": "4e1b22714ad698f5",
+        "order": 1,
+        "width": 5,
+        "height": 1,
+        "name": "",
+        "label": "Status",
+        "format": "{{msg.status}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 790,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "12b71fa6ef725169",
+        "type": "function",
+        "z": "afe97e04980fad99",
+        "name": "verifyStatus",
+        "func": "let input = msg.payload;\n\nswitch (input) {\n    case \"green\":\n        msg.status = \"OK\";\n        msg.color = \"green\";\n        break;\n    case \"yellow\":\n        msg.status = \"Reseting\";\n        msg.color = \"yellow\";\n        break;\n    case \"red\":\n        msg.status = \"Stopped\";\n        msg.color = \"red\";\n        break;\n    default:\n        msg.status = \"Unknown\";\n        msg.color = \"gray\";\n        break;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 140,
+        "wires": [
+            [
+                "d3e6d891c3c974fb",
+                "04409ed5635def01"
+            ]
+        ]
+    },
+    {
+        "id": "04409ed5635def01",
+        "type": "ui_colour_picker",
+        "z": "afe97e04980fad99",
+        "name": "",
+        "label": "StatusC",
+        "group": "4e1b22714ad698f5",
+        "format": "hex",
+        "outformat": "string",
+        "showSwatch": true,
+        "showPicker": false,
+        "showValue": false,
+        "showHue": false,
+        "showAlpha": false,
+        "showLightness": true,
+        "square": "false",
+        "dynOutput": "false",
+        "order": 2,
+        "width": 1,
+        "height": 1,
+        "passthru": true,
+        "topic": "color",
+        "topicType": "msg",
+        "className": "",
+        "x": 800,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6c6efc142521e2f2",
+        "type": "function",
+        "z": "afe97e04980fad99",
+        "name": "percentageHandler",
+        "func": "msg.payload = msg.payload * 100;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 720,
+        "wires": [
+            [
+                "f8d9160a952f89c7"
+            ]
+        ]
+    },
+    {
+        "id": "6697cbde1e3e36c7",
+        "type": "function",
+        "z": "afe97e04980fad99",
+        "name": "percentageHandler",
+        "func": "msg.payload = msg.payload * 50;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 500,
+        "wires": [
+            [
+                "dbc3f1e87a2b3704"
+            ]
+        ]
+    },
+    {
+        "id": "718d039bec36ded9",
+        "type": "function",
+        "z": "afe97e04980fad99",
+        "name": "verifyStatus",
+        "func": "let input = msg.payload;\n\nif (input == true) {\n    var newmsg = { payload: \"green\" };\n    return newmsg;\n}\nvar newmsg = { payload: \"red\" };\nreturn newmsg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 260,
+        "wires": [
+            [
+                "ac896f6d24664d75"
+            ]
+        ]
+    },
+    {
+        "id": "ac896f6d24664d75",
+        "type": "ui_colour_picker",
+        "z": "afe97e04980fad99",
+        "name": "",
+        "label": "CHStatus",
+        "group": "4e1b22714ad698f5",
+        "format": "hex",
+        "outformat": "string",
+        "showSwatch": true,
+        "showPicker": false,
+        "showValue": false,
+        "showHue": false,
+        "showAlpha": false,
+        "showLightness": true,
+        "square": "false",
+        "dynOutput": "false",
+        "order": 11,
+        "width": "1",
+        "height": 1,
+        "passthru": true,
+        "topic": "color",
+        "topicType": "msg",
+        "className": "",
+        "x": 1060,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6ef65ca819a6c142",
+        "type": "ui_text",
+        "z": "afe97e04980fad99",
+        "group": "4e1b22714ad698f5",
+        "order": 10,
+        "width": "5",
+        "height": "1",
+        "name": "",
+        "label": "Item at the End of the Conveyor?",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1140,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "86b01018c945b0e5",
+        "type": "function",
+        "z": "afe97e04980fad99",
+        "name": "verifyStatus",
+        "func": "let input = msg.payload;\n\nif (input == true) {\n    var newmsg = { payload: \"green\" };\n    return newmsg;\n}\nvar newmsg = { payload: \"red\" };\nreturn newmsg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 360,
+        "wires": [
+            [
+                "e795a6bab3dcac87"
+            ]
+        ]
+    },
+    {
+        "id": "e795a6bab3dcac87",
+        "type": "ui_colour_picker",
+        "z": "afe97e04980fad99",
+        "name": "",
+        "label": "MVSStatus",
+        "group": "4e1b22714ad698f5",
+        "format": "hex",
+        "outformat": "string",
+        "showSwatch": true,
+        "showPicker": false,
+        "showValue": false,
+        "showHue": false,
+        "showAlpha": false,
+        "showLightness": true,
+        "square": "false",
+        "dynOutput": "false",
+        "order": 6,
+        "width": "1",
+        "height": 1,
+        "passthru": true,
+        "topic": "color",
+        "topicType": "msg",
+        "className": "",
+        "x": 1070,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3515d24704db150c",
+        "type": "ui_text",
+        "z": "afe97e04980fad99",
+        "group": "4e1b22714ad698f5",
+        "order": 5,
+        "width": "5",
+        "height": "1",
+        "name": "",
+        "label": "Yogurt is flowing?",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1090,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "654b43e810e86630",
+        "type": "function",
+        "z": "afe97e04980fad99",
+        "name": "verifyStatus",
+        "func": "let input = msg.payload;\n\nif (input == true) {\n    var newmsg = { payload: \"green\" };\n    return newmsg;\n}\nvar newmsg = { payload: \"red\" };\nreturn newmsg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 460,
+        "wires": [
+            [
+                "7a40df210e819ebd"
+            ]
+        ]
+    },
+    {
+        "id": "7a40df210e819ebd",
+        "type": "ui_colour_picker",
+        "z": "afe97e04980fad99",
+        "name": "",
+        "label": "CHStatus",
+        "group": "4e1b22714ad698f5",
+        "format": "hex",
+        "outformat": "string",
+        "showSwatch": true,
+        "showPicker": false,
+        "showValue": false,
+        "showHue": false,
+        "showAlpha": false,
+        "showLightness": true,
+        "square": "false",
+        "dynOutput": "false",
+        "order": 9,
+        "width": "1",
+        "height": 1,
+        "passthru": true,
+        "topic": "color",
+        "topicType": "msg",
+        "className": "",
+        "x": 1060,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bf6307ecb369288d",
+        "type": "ui_text",
+        "z": "afe97e04980fad99",
+        "group": "4e1b22714ad698f5",
+        "order": 8,
+        "width": "5",
+        "height": "1",
+        "name": "",
+        "label": "Item at the Begin of the Conveyor?",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1140,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "382a45be713ee30f",
+        "type": "read-property",
+        "z": "7821fc403eb5a650",
+        "name": "",
+        "topic": "",
+        "thing": "8ee87d6d8b1b13f9",
+        "property": "stackLightStatus",
+        "uriVariables": "",
+        "interval": "2",
+        "observe": false,
+        "x": 330,
+        "y": 140,
+        "wires": [
+            [
+                "24f4a260d313818c"
+            ]
+        ]
+    },
+    {
+        "id": "efb8213f27aac093",
+        "type": "read-property",
+        "z": "7821fc403eb5a650",
+        "name": "",
+        "topic": "",
+        "thing": "8ee87d6d8b1b13f9",
+        "property": "inMovement",
+        "uriVariables": "",
+        "interval": "2",
+        "observe": false,
+        "x": 320,
+        "y": 220,
+        "wires": [
+            [
+                "c2bf0aa7d1e34b04"
+            ]
+        ]
+    },
+    {
+        "id": "e2850bab217c69cc",
+        "type": "read-property",
+        "z": "7821fc403eb5a650",
+        "name": "",
+        "topic": "",
+        "thing": "8ee87d6d8b1b13f9",
+        "property": "grasping",
+        "uriVariables": "",
+        "interval": "2",
+        "observe": false,
+        "x": 310,
+        "y": 340,
+        "wires": [
+            [
+                "b8e7561b3a6e7c0f"
+            ]
+        ]
+    },
+    {
+        "id": "de1a2283271a7517",
+        "type": "invoke-action",
+        "z": "7821fc403eb5a650",
+        "name": "",
+        "topic": "",
+        "thing": "8ee87d6d8b1b13f9",
+        "action": "pressEmergencyStop",
+        "uriVariables": "",
+        "x": 640,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "47b3db564e8acd97",
+        "type": "ui_button",
+        "z": "7821fc403eb5a650",
+        "name": "",
+        "group": "1eb94c06701f7eb8",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Press Emergency Stop",
+        "tooltip": "",
+        "color": "white",
+        "bgcolor": "red",
+        "className": "",
+        "icon": "",
+        "payload": "{}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 320,
+        "y": 60,
+        "wires": [
+            [
+                "de1a2283271a7517"
+            ]
+        ]
+    },
+    {
+        "id": "ca9ce621ee4c7ce8",
+        "type": "ui_text",
+        "z": "7821fc403eb5a650",
+        "group": "1eb94c06701f7eb8",
+        "order": 1,
+        "width": 5,
+        "height": 1,
+        "name": "",
+        "label": "Status",
+        "format": "{{msg.status}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 830,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "24f4a260d313818c",
+        "type": "function",
+        "z": "7821fc403eb5a650",
+        "name": "verifyStatus",
+        "func": "let input = msg.payload;\n\nswitch (input) {\n    case \"green\":\n        msg.status = \"OK\";\n        msg.color = \"green\";\n        break;\n    case \"yellow\":\n        msg.status = \"Reseting\";\n        msg.color = \"yellow\";\n        break;\n    case \"red\":\n        msg.status = \"Stopped\";\n        msg.color = \"red\";\n        break;\n    default:\n        msg.status = \"Unknown\";\n        msg.color = \"gray\";\n        break;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 140,
+        "wires": [
+            [
+                "ca9ce621ee4c7ce8",
+                "aa1b2936326fe3d8"
+            ]
+        ]
+    },
+    {
+        "id": "aa1b2936326fe3d8",
+        "type": "ui_colour_picker",
+        "z": "7821fc403eb5a650",
+        "name": "",
+        "label": "StatusC",
+        "group": "1eb94c06701f7eb8",
+        "format": "hex",
+        "outformat": "string",
+        "showSwatch": true,
+        "showPicker": false,
+        "showValue": false,
+        "showHue": false,
+        "showAlpha": false,
+        "showLightness": true,
+        "square": "false",
+        "dynOutput": "false",
+        "order": 2,
+        "width": 1,
+        "height": 1,
+        "passthru": true,
+        "topic": "color",
+        "topicType": "msg",
+        "className": "",
+        "x": 840,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c2bf0aa7d1e34b04",
+        "type": "function",
+        "z": "7821fc403eb5a650",
+        "name": "verifyStatus",
+        "func": "let input = msg.payload;\n\nif (input == true) {\n    var newmsg = { payload: \"green\" };\n    return newmsg;\n}\nvar newmsg = { payload: \"red\" };\nreturn newmsg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 220,
+        "wires": [
+            [
+                "e9b0a7cc29c6eb4f"
+            ]
+        ]
+    },
+    {
+        "id": "e9b0a7cc29c6eb4f",
+        "type": "ui_colour_picker",
+        "z": "7821fc403eb5a650",
+        "name": "",
+        "label": "ArmStatus",
+        "group": "1eb94c06701f7eb8",
+        "format": "hex",
+        "outformat": "string",
+        "showSwatch": true,
+        "showPicker": false,
+        "showValue": false,
+        "showHue": false,
+        "showAlpha": false,
+        "showLightness": true,
+        "square": "false",
+        "dynOutput": "false",
+        "order": 5,
+        "width": "1",
+        "height": 1,
+        "passthru": true,
+        "topic": "color",
+        "topicType": "msg",
+        "className": "",
+        "x": 850,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6ce9e3fcd09461d9",
+        "type": "ui_text",
+        "z": "7821fc403eb5a650",
+        "group": "1eb94c06701f7eb8",
+        "order": 4,
+        "width": "5",
+        "height": "1",
+        "name": "",
+        "label": "Arm is in moviment?",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 880,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "b8e7561b3a6e7c0f",
+        "type": "function",
+        "z": "7821fc403eb5a650",
+        "name": "verifyStatus",
+        "func": "let input = msg.payload;\n\nif (input == true) {\n    var newmsg = { payload: \"green\" };\n    return newmsg;\n}\nvar newmsg = { payload: \"red\" };\nreturn newmsg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 340,
+        "wires": [
+            [
+                "8b10423879385b25"
+            ]
+        ]
+    },
+    {
+        "id": "8b10423879385b25",
+        "type": "ui_colour_picker",
+        "z": "7821fc403eb5a650",
+        "name": "",
+        "label": "GraspStatus",
+        "group": "1eb94c06701f7eb8",
+        "format": "hex",
+        "outformat": "string",
+        "showSwatch": true,
+        "showPicker": false,
+        "showValue": false,
+        "showHue": false,
+        "showAlpha": false,
+        "showLightness": true,
+        "square": "false",
+        "dynOutput": "false",
+        "order": 7,
+        "width": "1",
+        "height": 1,
+        "passthru": true,
+        "topic": "color",
+        "topicType": "msg",
+        "className": "",
+        "x": 850,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "862089f53f0a0b19",
+        "type": "ui_text",
+        "z": "7821fc403eb5a650",
+        "group": "1eb94c06701f7eb8",
+        "order": 6,
+        "width": "5",
+        "height": "1",
+        "name": "",
+        "label": "Arm is Grasping?",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 870,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "98cd2d032eefd66c",
+        "type": "read-property",
+        "z": "f26c61a9d77fd309",
+        "name": "",
+        "topic": "",
+        "thing": "49b00d66d72984ff",
+        "property": "stackLightStatus",
+        "uriVariables": "",
+        "interval": "2",
+        "observe": false,
+        "x": 270,
+        "y": 200,
+        "wires": [
+            [
+                "eeedc163ab32a2ea"
+            ]
+        ]
+    },
+    {
+        "id": "e791f373b0e29233",
+        "type": "read-property",
+        "z": "f26c61a9d77fd309",
+        "name": "",
+        "topic": "",
+        "thing": "49b00d66d72984ff",
+        "property": "conveyorSpeed",
+        "uriVariables": "",
+        "interval": "2",
+        "observe": false,
+        "x": 270,
+        "y": 280,
+        "wires": [
+            [
+                "d9bbd8c4cba015a2"
+            ]
+        ]
+    },
+    {
+        "id": "4712afb7fbf196e1",
+        "type": "read-property",
+        "z": "f26c61a9d77fd309",
+        "name": "",
+        "topic": "",
+        "thing": "49b00d66d72984ff",
+        "property": "packageBuffer",
+        "uriVariables": "",
+        "interval": "2",
+        "observe": false,
+        "x": 270,
+        "y": 360,
+        "wires": [
+            [
+                "1ae725a7f81d0eef",
+                "783be34414406882"
+            ]
+        ]
+    },
+    {
+        "id": "4614674e41a11401",
+        "type": "read-property",
+        "z": "f26c61a9d77fd309",
+        "name": "",
+        "topic": "",
+        "thing": "49b00d66d72984ff",
+        "property": "opticalSensorPackage",
+        "uriVariables": "",
+        "interval": "2",
+        "observe": false,
+        "x": 290,
+        "y": 440,
+        "wires": [
+            [
+                "1098d3c2144495a4"
+            ]
+        ]
+    },
+    {
+        "id": "0f7bbd94dfb93f0a",
+        "type": "read-property",
+        "z": "f26c61a9d77fd309",
+        "name": "",
+        "topic": "",
+        "thing": "49b00d66d72984ff",
+        "property": "opticalSensorContainer1",
+        "uriVariables": "",
+        "interval": "2",
+        "observe": false,
+        "x": 300,
+        "y": 520,
+        "wires": [
+            [
+                "1ce1bda68db0030f"
+            ]
+        ]
+    },
+    {
+        "id": "d983306e5ad7b76f",
+        "type": "read-property",
+        "z": "f26c61a9d77fd309",
+        "name": "",
+        "topic": "",
+        "thing": "49b00d66d72984ff",
+        "property": "opticalSensorContainer2",
+        "uriVariables": "",
+        "interval": "2",
+        "observe": false,
+        "x": 300,
+        "y": 600,
+        "wires": [
+            [
+                "ee6791733acb2f66"
+            ]
+        ]
+    },
+    {
+        "id": "43fc76bd7a5984b7",
+        "type": "read-property",
+        "z": "f26c61a9d77fd309",
+        "name": "",
+        "topic": "",
+        "thing": "49b00d66d72984ff",
+        "property": "conveyorHeadStatus",
+        "uriVariables": "",
+        "interval": "2",
+        "observe": false,
+        "x": 290,
+        "y": 680,
+        "wires": [
+            [
+                "820fd3b2531e3461"
+            ]
+        ]
+    },
+    {
+        "id": "d2f417faf3da3612",
+        "type": "invoke-action",
+        "z": "f26c61a9d77fd309",
+        "name": "",
+        "topic": "",
+        "thing": "49b00d66d72984ff",
+        "action": "pressEmergencyStop",
+        "uriVariables": "",
+        "x": 580,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3e7f274a613ec89a",
+        "type": "ui_button",
+        "z": "f26c61a9d77fd309",
+        "name": "",
+        "group": "79506e97d9eae7c9",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Press Emergency Stop",
+        "tooltip": "",
+        "color": "white",
+        "bgcolor": "red",
+        "className": "",
+        "icon": "",
+        "payload": "{}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 260,
+        "y": 140,
+        "wires": [
+            [
+                "d2f417faf3da3612"
+            ]
+        ]
+    },
+    {
+        "id": "1ae725a7f81d0eef",
+        "type": "ui_text",
+        "z": "f26c61a9d77fd309",
+        "group": "79506e97d9eae7c9",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Package Buffer Amount",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 610,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "c5a2f477ecff74fb",
+        "type": "ui_gauge",
+        "z": "f26c61a9d77fd309",
+        "name": "",
+        "group": "79506e97d9eae7c9",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Conveyor Speed",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#f5f5f5",
+            "#e6e600",
+            "#3acb43"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 950,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "612027a89cfd0bf0",
+        "type": "ui_text",
+        "z": "f26c61a9d77fd309",
+        "group": "79506e97d9eae7c9",
+        "order": 1,
+        "width": 5,
+        "height": 1,
+        "name": "",
+        "label": "Status",
+        "format": "{{msg.status}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 770,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "eeedc163ab32a2ea",
+        "type": "function",
+        "z": "f26c61a9d77fd309",
+        "name": "verifyStatus",
+        "func": "let input = msg.payload;\n\nswitch (input) {\n    case \"green\":\n        msg.status = \"OK\";\n        msg.color = \"green\";\n        break;\n    case \"yellow\":\n        msg.status = \"Reseting\";\n        msg.color = \"yellow\";\n        break;\n    case \"red\":\n        msg.status = \"Stopped\";\n        msg.color = \"red\";\n        break;\n    default:\n        msg.status = \"Unknown\";\n        msg.color = \"gray\";\n        break;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 200,
+        "wires": [
+            [
+                "612027a89cfd0bf0",
+                "52915e034d0cead5"
+            ]
+        ]
+    },
+    {
+        "id": "52915e034d0cead5",
+        "type": "ui_colour_picker",
+        "z": "f26c61a9d77fd309",
+        "name": "",
+        "label": "StatusC",
+        "group": "79506e97d9eae7c9",
+        "format": "hex",
+        "outformat": "string",
+        "showSwatch": true,
+        "showPicker": false,
+        "showValue": false,
+        "showHue": false,
+        "showAlpha": false,
+        "showLightness": true,
+        "square": "false",
+        "dynOutput": "false",
+        "order": 2,
+        "width": 1,
+        "height": 1,
+        "passthru": true,
+        "topic": "color",
+        "topicType": "msg",
+        "className": "",
+        "x": 780,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "783be34414406882",
+        "type": "ui_chart",
+        "z": "f26c61a9d77fd309",
+        "name": "",
+        "group": "4d1179f5d5ee9b5d",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Package Buffer",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 580,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d9bbd8c4cba015a2",
+        "type": "function",
+        "z": "f26c61a9d77fd309",
+        "name": "percentageHandler",
+        "func": "msg.payload = msg.payload * 100;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 280,
+        "wires": [
+            [
+                "c5a2f477ecff74fb"
+            ]
+        ]
+    },
+    {
+        "id": "1098d3c2144495a4",
+        "type": "function",
+        "z": "f26c61a9d77fd309",
+        "name": "verifyStatus",
+        "func": "let input = msg.payload;\n\nif (input == true) {\n    var newmsg = { payload: \"green\" };\n    return newmsg;\n}\nvar newmsg = { payload: \"red\" };\nreturn newmsg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 440,
+        "wires": [
+            [
+                "4111896cd6477e94"
+            ]
+        ]
+    },
+    {
+        "id": "4111896cd6477e94",
+        "type": "ui_colour_picker",
+        "z": "f26c61a9d77fd309",
+        "name": "",
+        "label": "PCStatus",
+        "group": "79506e97d9eae7c9",
+        "format": "hex",
+        "outformat": "string",
+        "showSwatch": true,
+        "showPicker": false,
+        "showValue": false,
+        "showHue": false,
+        "showAlpha": false,
+        "showLightness": true,
+        "square": "false",
+        "dynOutput": "false",
+        "order": 11,
+        "width": "1",
+        "height": 1,
+        "passthru": true,
+        "topic": "color",
+        "topicType": "msg",
+        "className": "",
+        "x": 1000,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "42420e9b8b6d3030",
+        "type": "ui_text",
+        "z": "f26c61a9d77fd309",
+        "group": "79506e97d9eae7c9",
+        "order": 10,
+        "width": "5",
+        "height": "1",
+        "name": "",
+        "label": "Package in Conveyor?",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1040,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "1ce1bda68db0030f",
+        "type": "function",
+        "z": "f26c61a9d77fd309",
+        "name": "verifyStatus",
+        "func": "let input = msg.payload;\n\nif (input == true) {\n    var newmsg = { payload: \"green\" };\n    return newmsg;\n}\nvar newmsg = { payload: \"red\" };\nreturn newmsg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 520,
+        "wires": [
+            [
+                "d73e13bb2352b945"
+            ]
+        ]
+    },
+    {
+        "id": "d73e13bb2352b945",
+        "type": "ui_colour_picker",
+        "z": "f26c61a9d77fd309",
+        "name": "",
+        "label": "C1Status",
+        "group": "79506e97d9eae7c9",
+        "format": "hex",
+        "outformat": "string",
+        "showSwatch": true,
+        "showPicker": false,
+        "showValue": false,
+        "showHue": false,
+        "showAlpha": false,
+        "showLightness": true,
+        "square": "false",
+        "dynOutput": "false",
+        "order": 7,
+        "width": "1",
+        "height": 1,
+        "passthru": true,
+        "topic": "color",
+        "topicType": "msg",
+        "className": "",
+        "x": 1000,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "30fbc3d006209c53",
+        "type": "ui_text",
+        "z": "f26c61a9d77fd309",
+        "group": "79506e97d9eae7c9",
+        "order": 6,
+        "width": "5",
+        "height": "1",
+        "name": "",
+        "label": "Cup in 1 Position?",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1030,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "ee6791733acb2f66",
+        "type": "function",
+        "z": "f26c61a9d77fd309",
+        "name": "verifyStatus",
+        "func": "let input = msg.payload;\n\nif (input == true) {\n    var newmsg = { payload: \"green\" };\n    return newmsg;\n}\nvar newmsg = { payload: \"red\" };\nreturn newmsg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 600,
+        "wires": [
+            [
+                "53afb9e3dfa6826f"
+            ]
+        ]
+    },
+    {
+        "id": "53afb9e3dfa6826f",
+        "type": "ui_colour_picker",
+        "z": "f26c61a9d77fd309",
+        "name": "",
+        "label": "C2Status",
+        "group": "79506e97d9eae7c9",
+        "format": "hex",
+        "outformat": "string",
+        "showSwatch": true,
+        "showPicker": false,
+        "showValue": false,
+        "showHue": false,
+        "showAlpha": false,
+        "showLightness": true,
+        "square": "false",
+        "dynOutput": "false",
+        "order": 9,
+        "width": "1",
+        "height": 1,
+        "passthru": true,
+        "topic": "color",
+        "topicType": "msg",
+        "className": "",
+        "x": 1000,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8787581718a5dab3",
+        "type": "ui_text",
+        "z": "f26c61a9d77fd309",
+        "group": "79506e97d9eae7c9",
+        "order": 8,
+        "width": "5",
+        "height": "1",
+        "name": "",
+        "label": "Cup in 2 Position?",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1030,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "820fd3b2531e3461",
+        "type": "function",
+        "z": "f26c61a9d77fd309",
+        "name": "verifyStatus",
+        "func": "let input = msg.payload;\n\nif (input == true) {\n    var newmsg = { payload: \"green\" };\n    return newmsg;\n}\nvar newmsg = { payload: \"red\" };\nreturn newmsg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 680,
+        "wires": [
+            [
+                "c6392324d730a6f5"
+            ]
+        ]
+    },
+    {
+        "id": "c6392324d730a6f5",
+        "type": "ui_colour_picker",
+        "z": "f26c61a9d77fd309",
+        "name": "",
+        "label": "HSStatus",
+        "group": "79506e97d9eae7c9",
+        "format": "hex",
+        "outformat": "string",
+        "showSwatch": true,
+        "showPicker": false,
+        "showValue": false,
+        "showHue": false,
+        "showAlpha": false,
+        "showLightness": true,
+        "square": "false",
+        "dynOutput": "false",
+        "order": 13,
+        "width": "1",
+        "height": 1,
+        "passthru": true,
+        "topic": "color",
+        "topicType": "msg",
+        "className": "",
+        "x": 1000,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0045443bd61fa500",
+        "type": "ui_text",
+        "z": "f26c61a9d77fd309",
+        "group": "79506e97d9eae7c9",
+        "order": 12,
+        "width": "5",
+        "height": "1",
+        "name": "",
+        "label": "Package at End of the Conveyor?",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1080,
+        "y": 720,
+        "wires": []
+    }
+]

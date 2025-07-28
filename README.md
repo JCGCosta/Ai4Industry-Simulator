@@ -23,4 +23,19 @@ The architecture supporting the hackathon use case is structured along three lay
 
 For a deep explanation of the Industry setup and Scenario please see: https://gitlab.emse.fr/ai4industry/hackathon/-/wikis/scenario
 
+## Running
+
 For installation and replication of the scenario please see: https://gitlab.emse.fr/ai4industry/hackathon/-/wikis/hackathon-configuration
+
+> You may encounter issues into installing the node-red-contrib-web-of-things plugin, this plugin requires nan and serialports@9.2.8 to run properly, but the serialports version requires the node version v18.20.3, so the earliest versions may crash. To solve this issue you can install [nvm](https://github.com/nvm-sh/nvm) to have multiple node environments.
+
+For the dashboard after installation of the node-red dependencies, import the NodeRedFlows.json file.
+
+## Results
+
+- Node-red dashboard for monitoring the factory:
+
+
+
+- MAS simulation running in the factory dashboard:
+
