@@ -1,0 +1,29 @@
+{
+    "@context": "https://www.w3.org/2019/wot/td/v1",
+    "id": "tag:dairyProductProvider",
+    "title": "dairyProductProvider",
+    "securityDefinitions": {
+        "with_auth": {
+            "scheme": "basic"
+        }
+    },
+    "security": [
+        "with_auth"
+    ],
+    "actions": {
+        "order" : {
+            "description": "order a certain volume of dairy product",
+            "input": {
+                "type": "number"
+            }
+        }
+    },
+    "events": {
+        "delivered": {
+            "description": "indicates what volume has been delivered",
+            "data": {
+                "type": "number"
+            }
+        }
+    }
+}

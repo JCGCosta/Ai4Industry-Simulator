@@ -46,16 +46,23 @@ thing(boschApas,Thing) :-
     thing(Name,Thing) 
     <-
     .print("Found suitable RobotArm : ", Thing) ;
+
     ?has_origin_coordinates(Name,CX,CY,CZ);
     .println(Thing, " has origin coordinates ",CX," ",CY," ",CZ);
-  .
 
-+!potItem[source(Sender)] :
-    true
-    <-
-    !potItems(boschApas);
-    .println("processed order and sending message to ",Sender);
-    .send(Sender,tell,done(order))
+    !getDescription(Name);
+
+    !testStatus(Name);
+
+    // Not necessary to get all of them regularly. 
+    // Choose and comment, otherwise there is a risk of
+    // consuming all the computing resources
+   // !observeInMovement(Name);
+   // !observeGrasping(Name);
+
+    !potItems(Name);
+
+    !testStatus(Name);
   .
 
 +!run(Name) :
@@ -69,18 +76,21 @@ thing(boschApas,Thing) :-
     location_conveyor(Lc)
     & location_packaging(Lp)
     <-
-    !carry(Name,Lc,Lp);
+    !carry1(Name,Lc,Lp);
+    .wait(1000);
+    !!potItems(Name);
   .
 
-// Fake plan. Adapt.
-+!carry(Name,From,To) :
++!carry1(Name,From,To) :
     true
     <-
-    .println("carrying a pot from ",From," to ",To);
-    !move(Name, From);
-    !grasp(Name, From);
-    !move(Name, To);
-    !release(Name, To)
+    !move(Name,[2.2,0,1]);
+    .wait(1000);
+    !grasp(Name,At);
+    .wait(1000);
+    !move(Name,[3.2,0,1]);
+    .wait(1000);
+    !release(Name,At);
   .
 
 { include("inc/robot_arm_skills.asl") }

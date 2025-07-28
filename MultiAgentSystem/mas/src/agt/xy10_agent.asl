@@ -68,13 +68,13 @@ thing(packagingWorkshop,Thing) :-
     // Not necessary to get all of them regularly. 
     // Choose and comment, otherwise there is a risk of
     // consuming all the computing resources
-    !observeStackLightStatus(Name);
-    !observeConveyorSpeed(Name); 
-    !observePackageBuffer(Name);
-    !observeOpticalSensorPackage(Name);
-    !observeOpticalSensorContainer1(Name);
-    !observeOpticalSensorContainer2(Name);
-    !observeConveyorHeadStatus(Name);
+   // !observeStackLightStatus(Name);
+   // !observeConveyorSpeed(Name); 
+  //  !observePackageBuffer(Name);
+  //  !observeOpticalSensorPackage(Name);
+  //  !observeOpticalSensorContainer1(Name);
+  //  !observeOpticalSensorContainer2(Name);
+  //  !observeConveyorHeadStatus(Name);
 
     ?conveyorSpeed(Name,IS);
     if (IS == 0) {

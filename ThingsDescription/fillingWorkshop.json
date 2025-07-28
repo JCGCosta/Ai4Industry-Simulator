@@ -1,0 +1,56 @@
+{
+    "@context": "https://www.w3.org/2019/wot/td/v1",
+    "id": "tag:fillingWorkshop",
+    "title": "fillingWorkshop",
+    "description": "DX10 filling workshop with a Cartesian robot, a filler (with a magnetic valve) attached to the Cartesian robot and a conveyor belt. The machine is configured such that: 1) once the optical sensor at the start of the belt detects an item, the magnetic valve of the filler opens and the Cartesian robot starts to move along the X axis (at the speed of the belt) above the item. 2) Once a preconfigured amount of product has been poured by the filler, the valve closes and the robot returns to its initial X coordinate at maximum speed while the item keeps moving towards the end of the conveyor.",
+    "securityDefinitions": {
+        "with_auth": {
+            "scheme": "basic"
+        }
+    },
+    "security": [
+        "with_auth"
+    ],
+    "properties": {
+        "stackLightStatus": {
+            "readOnly": true,
+            "description": "Reads the status of the workshop (e.g. the status is 'yellow' when the workshop is resetting.)",
+            "type": "string",
+            "enum": ["green", "yellow", "red"]
+        },
+        "conveyorSpeed": {
+            "description": "Reads and writes the speed (X axis) of the conveyor belt (and the Cartesian robot that moves along the belt) (in meters/sec). The maximum speed is 1 meter/sec.",
+            "type": "number"
+        },
+        "conveyorHeadStatus": {
+            "readOnly": true,
+            "description": "Reads the status of the optical sensor that detects whether an item is positioned at the end of the conveyor belt.", 
+            "type": "boolean"
+        },
+        "magneticValveStatus": {
+            "readOnly": true,
+            "description": "Reads the status of the magnetic valve which controls the product flow of the tank. When the status is true, product (e.g. yogurt) is flowing from the tank to an item (e.g. a container).",
+            "type": "boolean"
+        },
+        "opticalSensorStatus": {
+            "readOnly": true,
+            "description": "Reads the status of the optical sensor that detects whether an item is positioned at the start of the conveyor belt under the filler.",
+            "type": "boolean"
+        },
+        "tankLevel": {
+            "readOnly": true,
+            "description": "Reads the quantity of product in the tank (in liters).",
+            "type": "number"
+        },
+        "positionX": {
+            "readOnly": true,
+            "description": "Reads the position of the Cartesian motor on the X axis (in meters).",
+            "type": "number"
+        }
+    },
+    "actions": {
+        "pressEmergencyStop": {
+            "description": "Turns off all active components of the machine: It sets the conveyor speed to 0, it closes the filler`s magnetic valve, it returns the Cartesian robot (and the attached filler) to its home position at the start of the belt, and a human operator is called to remove any items that have been placed on the conveyor belt."
+        }
+    }
+}

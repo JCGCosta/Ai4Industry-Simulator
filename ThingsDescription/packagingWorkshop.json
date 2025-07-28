@@ -1,0 +1,56 @@
+{
+    "@context": "https://www.w3.org/2019/wot/td/v1",
+    "id": "tag:packagingWorkshop",
+    "title": "packagingWorkshop",
+    "description": "XY10 packaging workshop",
+    "securityDefinitions": {
+        "with_auth": {
+            "scheme": "basic"
+        }
+    },
+    "security": [
+        "with_auth"
+    ],
+    "properties": {
+        "stackLightStatus": {
+            "readOnly": true,
+            "description": "Reads the status of the workshop (e.g. the status is 'yellow' when the workshop is resetting.)",
+            "type": "string",
+            "enum": ["green", "yellow", "red"]
+        },
+        "conveyorSpeed": {
+            "description": "Reads and writes the speed (X axis) of the conveyor belt (in meters/sec). The maximum speed is 1 meter/sec.",
+            "type": "number"
+        },
+        "packageBuffer": {
+            "readOnly": true,
+            "description": "Reads the number of available packages in storage.",
+            "type": "number"
+        },
+        "opticalSensorPackage": {
+            "readOnly": true,
+            "description": "Reads the status of the optical sensor that detects whether a package is on the coveyor.",
+            "type": "boolean"
+        },
+        "opticalSensorContainer1": {
+            "readOnly": true,
+            "description": "Reads the status of the optical sensor that detects whether a container is first position.",
+            "type": "boolean"
+        },
+        "opticalSensorContainer2": {
+            "readOnly": true,
+            "description": "Reads the status of the optical sensor that detects whether a container is first position.",
+            "type": "boolean"
+        },
+        "conveyorHeadStatus": {
+            "readOnly": true,
+            "description": "Reads the status of the optical sensor that detects whether an item is positioned at the end of the conveyor belt.", 
+            "type": "boolean"
+        }
+    },
+    "actions": {
+        "pressEmergencyStop": {
+            "description": "Turns off all active components of the machine: It sets the conveyor speed to 0, and a human operator is called to remove any items that have been placed on the conveyor belt."
+        }
+    }
+}

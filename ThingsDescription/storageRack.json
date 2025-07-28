@@ -1,0 +1,69 @@
+{
+    "@context": "https://www.w3.org/2019/wot/td/v1",
+    "id": "tag:storageRack",
+    "title": "storageRack",
+    "description": "VL10 storage rack with a Cartesian robot and a conveyor belt. It can be used as a conveying workshop: The Cartesian robot can be used to move on the XZ-plane, pick up items from the storage rack and place them on the one end of the conveyor belt.",
+    "securityDefinitions": {
+        "with_auth": {
+            "scheme": "basic"
+        }
+    },
+    "security": [
+        "with_auth"
+    ],
+    "properties": {
+        "stackLightStatus": {
+            "readOnly": true,
+            "description": "Reads the status of the workshop (e.g. the status is 'yellow' when the workshop is resetting.)",
+            "type": "string",
+            "enum": ["green", "yellow", "red"]
+        },
+        "capacity" : {
+            "readOnly": true,
+            "description": "Reads the capacity of the 2D storage rack E.g. a [5,5] capacity indicates that the rack has 5 rows (X axis) and 5 columns (Z axis), and it can store at most 25 items.",
+            "type": "array",
+            "maxItems": 2,
+            "minItems": 2,
+            "items": {
+                "type": "number"
+            }
+        },
+        "positionX": {
+            "readOnly": true,
+            "description": "Reads the position of the Cartesian motor on the X axis (in meters).",
+            "type": "number"
+        },
+        "positionZ": {
+            "readOnly": true,
+            "description": "Reads the position of the Cartesian motor on the Z axis (in meters).",
+            "type": "number"
+        },
+        "clampStatus": {
+            "readOnly": true,
+            "description": "Reads the status of the clamp of the Cartesian robot. The status is true if the clamp is closed, and false if the clamp is open.",
+            "type": "boolean"
+        },
+        "conveyorSpeed": {
+            "description": "Reads and writes the speed (X axis) of the conveyor belt (and the Cartesian robot that moves along the belt) (in meters/sec). The maximum speed is 1 meter/sec.",
+            "type": "number"
+        }
+    },
+    "actions": {
+        "pressEmergencyStop": {
+            "description": "Turns off all active components of the machine: It sets the conveyor speed to 0, and a human operator is called to remove any items that have been placed on the conveyor belt."
+        },
+        "pickItem": {
+            "description": "Picks an item from the storage rack and places it on the conveyor belt. E.g. to pick up the first item in the storage rack, the action must be invoked with input [0,0]. To monitor the state of the action, one can read the clamp status and the XZ-positions of the Cartesian robot. E.g. once the clamp is open again, the action has been completed.",
+            "input": {
+                "type": "array",
+                "description": "Position of the item on the XZ-plane.",
+                "maxItems": 2,
+                "minItems": 2,
+                "items": {
+                    "type": "number"
+                }
+            }
+        }
+    }
+}
+
