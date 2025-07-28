@@ -35,7 +35,7 @@ For the dashboard after installation of the node-red dependencies, import the No
 
 - Node-red dashboard for monitoring the factory:
 
-[![Node-Red-Dashboard](https://raw.githubusercontent.com/JCGCosta/Ai4Industry-Simulator/main/HackathonResults/dashboard_thumb.png)(https://raw.githubusercontent.com/JCGCosta/Ai4Industry-Simulator/main/HackathonResults/Dashboard%20Usage.mp4)
+[![Node-Red-Dashboard](https://raw.githubusercontent.com/JCGCosta/Ai4Industry-Simulator/main/HackathonResults/dashboard_thumb.png)](https://raw.githubusercontent.com/JCGCosta/Ai4Industry-Simulator/main/HackathonResults/Dashboard%20Usage.mp4)
 
 - MAS simulation running in the factory dashboard:
 
